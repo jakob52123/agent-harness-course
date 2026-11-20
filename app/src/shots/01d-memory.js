@@ -13,5 +13,5 @@ function paper() {
 
 export default {
   p41: paper(), p42: paper(), p43: paper(), p44: paper(),
-  p45: paper(), p46: paper(), p47: paper(), p48: paper(),
+  p46: paper(), p47: paper(), p48: paper(),
 };

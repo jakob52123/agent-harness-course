@@ -772,9 +772,9 @@ def main():
         selected = [(id_, n) for id_, n in pairs if id_ in wanted]
         assert page.evaluate('__app.pages') == list(COUNTS)
         if not args.pages and FILE in {HERE.parent.parent / 'Agent-Harness-第二期.html', HERE.parent / '_build/style-A.html'}:
-            expected = ['p1','p2','c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p9', *[f'p{i}' for i in range(33,54)], 'c3', 'p8', *[f'p{i}' for i in (*range(10,15), *range(16,20))], 'c4', 'p21', 'p23', 'p22', 'p25', 'p24', 'p26', 'p20']
+            expected = ['p1','p2','c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p9', *[f'p{i}' for i in range(33,54) if i != 45], 'c3', 'p8', *[f'p{i}' for i in (*range(10,15), *range(16,20))], 'c4', 'p21', 'p23', 'p22', 'p25', 'p24', 'p26', 'p20']
             assert list(COUNTS) == expected, list(COUNTS)
-            assert (len(COUNTS), sum(COUNTS.values())) == (49, 62), COUNTS
+            assert (len(COUNTS), sum(COUNTS.values())) == (48, 61), COUNTS
         check_all_content(page)
         assert page.locator('img').evaluate_all('els=>els.every(el=>el.complete && el.naturalWidth>0)'), 'Broken image'
         assert page.locator('a[href]').evaluate_all('els=>els.every(el=>el.target==="_blank")'), 'Link missing target=_blank'
@@ -782,7 +782,7 @@ def main():
             for step in range(n):
                 go(page, id_, step); check_opacity(page); check_information(page)
                 screenshot(page, f'{id_}-{step}.png')
-            if not args.pages and len(COUNTS) == 49:
+            if not args.pages and len(COUNTS) == 48:
                 final_shots = HERE / 'shots-all'
                 final_shots.mkdir(exist_ok=True)
                 page.screenshot(path=str(final_shots / f'{id_}.png'))

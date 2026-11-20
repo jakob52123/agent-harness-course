@@ -39,15 +39,6 @@
 #p44 .manual .minor { margin-top:18px; font-size:40px; }
 #p44 .topics { position:absolute; left:120px; top:785px; width:1680px; display:grid; grid-template-columns:repeat(3,1fr); gap:54px; }
 #p44 .topics .info { border-top:3px solid var(--line); padding-top:44px; font-size:64px; }
-#p45 .info:not(h2) { font-size:52px; line-height:1.25; }
-#p45 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
-#p45 .red { color:var(--accent); }
-#p45 a { color:inherit; text-decoration:underline; text-underline-offset:.15em; pointer-events:auto; }
-#p45 .source { position:absolute; left:120px; top:340px; width:950px;  }
-#p45 .source img { display:block; width:100%; margin:22px 0 12px; }
-#p45 .rules { position:absolute; left:1140px; top:312px; width:660px;  }
-#p45 .group { border-top:2px solid var(--line); padding:23px 0 28px; }
-#p45 .group .info { margin-bottom:12px; }
 #p46 .info:not(h2) { font-size:52px; line-height:1.25; }
 #p46 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
 #p46 .red { color:var(--accent); }
@@ -135,17 +126,6 @@
   <aside class="notes"><p>中期记忆，第一块：这个项目应该怎么做？AGENTS.md，项目的「工作手册」：使用什么语言，遵守什么规范，怎样运行和测试。至少要包含项目的语言规范、踩过的坑、最佳实践。</p><p>Claude Code 里这个文件叫 CLAUDE.md。</p><p>Claude Code 官方的建议是：同一个错误犯第二次，就写进这个文件。</p></aside>
 </section>
 
-<section class="page" id="p45" data-steps="1" data-title="中期记忆：开源项目也这么写" aria-label="中期记忆：开源项目也这么写">
-  <h2 class="info pixel-text" data-pixeltext="中期记忆：开源项目也这么写" data-size="96">中期记忆：开源项目也这么写</h2>
-  <div class="source"><div class="info ">Pi 仓库的 AGENTS.md</div><img src="images/s1/m-pi-agents-md-git.webp" alt="Pi 仓库 AGENTS.md 的 Git 一节"><div class="minor "><a href="https://github.com/earendil-works/pi/blob/main/AGENTS.md" target="_blank" rel="noopener noreferrer">Git 一节</a></div></div>
-  <div class="rules"><div class="group"><div class="info ">语言规范</div>
-  <div class="minor ">不准用 any；不准动态 import</div></div>
-  <div class="group"><div class="info red">踩过的坑</div>
-  <div class="minor ">同一目录可能同时跑着<br>好几个 pi 会话<br>别直接跑全量测试</div></div>
-  <div class="group"><div class="info ">最佳实践</div>
-  <div class="minor ">改完代码跑 npm run check<br>没让提交，就别提交</div></div></div>
-  <aside class="notes"><p>开源项目也这么写。这是 Pi 自己仓库里的 AGENTS.md，同样三类。</p><p>语言规范：不准用 any，不准动态 import。这两条是写代码的规矩，大家不用懂，知道这是语言规范就行。</p><p>踩过的坑：同一个目录里，可能同时跑着好几个 Pi 会话。所以禁止 git add -A、git reset --hard 这类命令，它们会把别人的改动一起带走。还有，别直接跑全量测试：有接口密钥的时候，测试会真的去调收费的模型接口，花真钱。</p><p>最佳实践：改完代码跑一遍检查；没让提交，就别提交。</p></aside>
-</section>
 
 <section class="page" id="p46" data-steps="1" data-title="中期记忆：项目的经验笔记" aria-label="中期记忆：项目的经验笔记">
   <h2 class="info pixel-text" data-pixeltext="中期记忆：项目的经验笔记" data-size="96">中期记忆：项目的经验笔记</h2>
