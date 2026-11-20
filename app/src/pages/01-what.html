@@ -23,8 +23,6 @@
 #p5 .function-label[data-step="1"]{top:128px}
 #p5 .function-label[data-step="2"]{top:333px}
 #p5 .function-label{left:182px;top:538px;padding:5px 16px 8px;font:700 36px/1.15 'AH Noto',sans-serif;background:var(--accent-soft);color:var(--accent)}
-#p5 .pi-demo{left:936px;top:438px;padding:0;background:var(--surface)}
-#p5 .callout{position:static;padding:11px 18px;border:0;border-top:1px solid var(--line);background:var(--surface);font:24px/1 'AH Silk',monospace}
 </style>
       <section class="page chapter" id="c1" data-steps="1" data-title="Agent Harness 是什么" aria-label="Agent Harness 是什么">
         <div class="chapter-number info pixel-text" data-pixeltext="01" data-size="360" data-cell="5">01</div>
@@ -75,7 +73,7 @@
         <p class="tagline">LLM 提供<strong>判断</strong>，<br>Harness 组织<strong>执行</strong></p>
         <aside class="notes"><p>这页大家可以拍照留底。如果用开车来理解的话：LLM 是我们的司机；工具是方向盘、油门、刹车；Context 是路况、仪表盘；Memory 是行车记录；Skills 是驾驶手册，或者说有点像越野的路书；Agent Loop 是司机看、判断、再操作，观察到反馈之后，再看、再判断、再操作；安全边界就像交规和护栏一样，规范司机的行驶路径。这其实就是一个 Agent Harness。</p><p>一句话：LLM 提供判断，Harness 组织执行。</p></aside>
       </section>
-      <section class="page loop-page" id="p5" data-steps="5" data-title="Loop" aria-label="Loop">
+      <section class="page loop-page" id="p5" data-steps="4" data-title="Loop" aria-label="Loop">
         <h2 class="info english">Loop</h2>
         <div class="loop-diagram">
           <svg viewBox="0 0 754 648" aria-hidden="true">
@@ -89,6 +87,5 @@
           <span class="function-label" data-step="3">Function calling</span>
         </div>
         <div class="fallback hero-fallback" data-icon="car" aria-hidden="true"></div>
-        <figure class="pi-demo comic" data-step="4"><img src="images/pi-demo-flow.webp" alt="Pi"><figcaption class="callout">Pi</figcaption></figure>
         <aside class="notes"><p>大模型自己不会动手，只会吐字；圈是外面的 Harness 程序带着模型在转。顺着屏幕上「看 → 想 → 做」三张卡看一圈怎么转：</p><p>第一步「看」，是组装 Context：由 Harness 把这一步要给模型看的信息组装成上下文（Context）喂给模型。第二步「想」，是模型 Thinking：模型拿到上下文开始思考（Thinking），决定下一步干什么。第三步「做」，是 Function calling：模型自己不调工具，只是通过 Function calling 吐出「我要调用哪个工具、参数是什么」；外面的 Harness 程序真正去执行工具，再把拿到的结果放回上下文（Context），接着转下一圈。</p></aside>
       </section>

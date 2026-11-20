@@ -65,7 +65,7 @@ def check_state(page, expected):
         return  # Later chapters may deliberately have no car.
     if expected[0] == 'p32':
         return  # Summary page: isolation checked above.
-    demo = expected == ('p5', 4)
+    demo = False  # 11-19 删了 p5 第 4 步的 Pi 截图，车页每一步都要有车
     if page.locator('html').evaluate("el=>el.classList.contains('no-webgl')"):
         if not demo:
             assert page.locator('.page.active [data-icon="car"]').is_visible(), 'Static car/part fallback must be visible'
@@ -236,7 +236,7 @@ def check_all_content(page):
                 continue
             steps = re.search(r'^## ' + id_ + r' .*?（(\d+) 步）', source, re.M | re.I)
             if steps:
-                expected_steps = (5 if id_ == 'p5' else int(steps.group(1))) if id_ in {'p3', 'p4', 'p5'} else 1
+                expected_steps = (4 if id_ == 'p5' else int(steps.group(1))) if id_ in {'p3', 'p4', 'p5'} else 1
                 assert COUNTS[id_] == expected_steps, id_
             notes = re.search(r'- \*\*讲稿\*\*[：:]?(.*)', section, re.S)
             if not notes:
@@ -269,7 +269,7 @@ def check_all_content(page):
     }''')
     assert not leaks, leaks
     assert page.locator('.notes a[href^="file:"], .notes a[href^="/Users/"]').count() == 0
-    print(f'PASS content: {checked} verbatim notes; single-step non-car pages / specified car counts (P5=5); chapter CSS isolation; no absolute local note links')
+    print(f'PASS content: {checked} verbatim notes; single-step non-car pages / specified car counts (P5=4); chapter CSS isolation; no absolute local note links')
 
 
 def sample_effect(page, id_, before, after, part, flashes=1):
@@ -541,7 +541,7 @@ def legacy_regressions():
         popup.keyboard.press('ArrowRight'); settled(page); check_state(page, ('c1', 0))
         assert popup.locator('#status').text_content() == f'第 3 / {len(COUNTS)} 页 · 第 1 / {COUNTS["c1"]} 步'
         popup.locator('#elapsed').click(); assert popup.locator('#elapsed').text_content() == '00:00'
-        go(page, 'p5', 4)
+        go(page, 'p5', 3)
         assert popup.locator('#notes').text_content() == page.locator('#p5 .notes').text_content()
         assert popup.locator('#notes a[href^="https:"]').count() == 0
         assert all(a.get_attribute('target') == '_blank' for a in popup.locator('#notes a').all())
@@ -774,7 +774,7 @@ def main():
         if not args.pages and FILE in {HERE.parent.parent / 'Agent-Harness-第二期.html', HERE.parent / '_build/style-A.html'}:
             expected = ['p1','p2','c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p9', *[f'p{i}' for i in range(33,54) if i != 45], 'c3', 'p8', *[f'p{i}' for i in (*range(10,15), *range(16,20))], 'c4', 'p21', 'p23', 'p22', 'p25', 'p24', 'p26', 'p20']
             assert list(COUNTS) == expected, list(COUNTS)
-            assert (len(COUNTS), sum(COUNTS.values())) == (48, 61), COUNTS
+            assert (len(COUNTS), sum(COUNTS.values())) == (48, 60), COUNTS
         check_all_content(page)
         assert page.locator('img').evaluate_all('els=>els.every(el=>el.complete && el.naturalWidth>0)'), 'Broken image'
         assert page.locator('a[href]').evaluate_all('els=>els.every(el=>el.target==="_blank")'), 'Link missing target=_blank'

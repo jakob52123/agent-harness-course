@@ -53,6 +53,5 @@ export default {
   },
   {cam:CHASE,car:{xray:0,lit:lit({windshield:1})},drive:{engine:false,beam:true,speed:3}},
   {car:{lit:lit({driver:1})},drive:{beam:false}},
-  {car:{lit:lit()},drive:{loop:true}},
-  {world:{backdrop:0},effect:EFFECT}],
+  {car:{lit:lit()},drive:{loop:true}}],
 };
