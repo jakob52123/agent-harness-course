@@ -1,0 +1,171 @@
+<style>
+.ch04-body{position:absolute;left:112px;top:330px;width:1120px}
+.ch04-five>li{grid-template-columns:80px 1fr;min-height:96px;font-size:60px}
+.ch04-five>li.current{color:var(--accent)}
+.ch04-key{font-size:48px;line-height:1.4;margin:0 0 54px}
+.ch04-sub{font-size:36px;line-height:1.5}
+.ch04-mono{font-family:'AH Noto',sans-serif}
+.ch04-fallback{position:absolute;left:1370px;top:460px;width:360px;height:330px;opacity:.55}
+.ch04-fallback-parts{position:absolute;left:1480px;top:820px;width:120px;height:120px}
+.ch04-fallback-parts [data-icon]{width:120px;height:120px;display:none}
+.ch04-fallback-parts [data-icon].current{display:block}
+.ch04-fallback-parts .ch04-context-icons{display:none;width:180px;height:100px}
+.ch04-fallback-parts .ch04-context-icons.current{display:flex}
+.ch04-fallback-parts .ch04-context-icons [data-icon]{display:block;width:90px;height:100px}
+.ch04-tools{display:grid;grid-template-columns:1fr 1fr;gap:24px 36px;width:1080px;top:305px}
+.ch04-tool{border-bottom:1px solid var(--line);padding:0 0 16px;min-height:120px}
+.ch04-tool h3{font-size:36px;font-weight:400;margin:0 0 14px}
+.ch04-tool p{font-size:24px;line-height:1.5;margin:0;white-space:nowrap;color:var(--ink2)}
+.ch04-door{position:absolute;left:1250px;top:300px;width:550px;height:286px;border:1px solid var(--line);padding:24px;font-size:36px;text-align:center}
+.ch04-door::before{content:'';position:absolute;left:205px;top:94px;width:140px;height:164px;border:2px solid var(--line);transform:skewY(-8deg);background:var(--surface)}
+.ch04-door::after{content:'';position:absolute;left:321px;top:172px;width:8px;height:8px;background:var(--accent)}
+.ch04-door .ch04-gateway{position:absolute;left:0;right:0;top:129px;z-index:1;font-size:24px;background:var(--bg);padding:16px 0}
+.ch04-door .ch04-cloud{display:flex;justify-content:center;gap:30px;font-size:36px}
+.ch04-tool-key{position:absolute;left:112px;top:920px;font-size:48px;margin:0}
+#p22 .ch04-fallback{top:650px;width:290px;height:240px;left:1430px}
+.ch04-drawers{width:1080px;display:grid;gap:30px}
+.ch04-drawer{position:relative;display:grid;grid-template-columns:260px 1fr;align-items:center;min-height:138px;padding:24px 30px;border-bottom:2px solid var(--line);transform:translateX(-22px);transition:transform .5s ease,opacity .4s ease!important}
+.ch04-drawer::after{content:'';position:absolute;right:0;top:0;bottom:0;width:12px;border:1px solid var(--line);transform:skewY(-35deg)}
+.ch04-drawer.on{transform:translateX(0);border-bottom-color:var(--accent)}
+.ch04-drawer .info{font-size:60px}.ch04-drawer .ch04-sub{font-size:36px}
+.ch04-skills{position:absolute;left:1160px;top:0;width:500px;border-left:2px solid var(--line);padding:12px 30px;font-size:36px}
+.ch04-sop .ch04-key{font-size:60px}.ch04-sop .ch04-mono{font-size:36px}
+.ch04-rule{top:385px;width:1240px}.ch04-rule .ch04-key{white-space:nowrap;margin-bottom:64px}
+.ch04-rule .ch04-sub{max-width:1200px}
+#p26 .ch04-loop{position:absolute;left:120px;top:365px;width:1680px;height:545px;padding:75px 0 140px;gap:48px;counter-reset:station}
+#p26 .station{padding:82px 12px 28px;counter-increment:station;background:var(--surface);border-top:3px solid var(--ink2);font-size:60px;font-weight:800}
+#p26 .station.current{border-color:var(--accent)}
+#p26 .station::before{content:counter(station,decimal-leading-zero);position:absolute;top:22px;left:24px;font:24px/1 'AH Silk',monospace;color:var(--ink2)}
+#p26 .station small{font-size:30px;font-weight:500;line-height:1.5;color:var(--ink2)}
+#p26 .component-path{stroke:var(--accent);stroke-width:2}
+#p26 .ch04-task{top:494px;left:50%;width:192px;height:74px;z-index:2;background:var(--accent-soft)}
+#p26 .ch04-person{top:-12px}#p26 .ch04-fallback{display:none}
+.ch04-task{position:absolute;top:265px;left:91.06%;width:160px;height:84px;display:flex;align-items:center;justify-content:center;transform:translateX(-50%);border:2px solid var(--accent);background:var(--accent-soft);color:var(--accent);font-size:36px;transition:left .45s ease,top .45s ease,opacity .4s ease!important}
+.ch04-person{position:absolute;left:calc(50% - 36px);top:-100px;width:72px;height:72px}
+.ch04-person svg{width:100%;height:100%}
+.ch04-person.current{animation:ch04-nod .6s .5s ease-in-out}
+@keyframes ch04-nod{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(8px) rotate(9deg)}}
+@media(prefers-reduced-motion:reduce){.ch04-drawer,.ch04-task{transition:none!important}}
+#c4 .chapter-case{position:absolute;left:120px;top:936px;font-size:36px;font-weight:500;color:var(--ink2)}
+#p20 .ch04-five{left:120px;top:305px;width:1210px;border-top:2px solid var(--line)}
+#p20 .ch04-five>li{grid-template-columns:84px 1fr;gap:18px;min-height:132px;font-size:56px}
+#p20 .ch04-five .current{border-bottom:3px solid var(--accent)}
+#p21 .ch04-body,#p24 .ch04-sop{left:120px;top:304px;width:1680px}
+#p21 .ch04-key,#p24 .ch04-key{font-size:100px;line-height:1.18;letter-spacing:-2px;margin:0}
+#p21 .ch04-key strong,#p24 .ch04-key strong,#p25 .ch04-key strong{color:var(--accent)}
+#p22 .ch04-tools{left:120px;width:1096px;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px;top:282px}
+#p22 .ch04-tool{padding-bottom:12px;min-height:108px}
+#p22 .ch04-tool h3{font-weight:700;margin-bottom:6px}
+#p22 .ch04-tool p,#p22 .ch04-gateway{font-size:26px;white-space:normal}
+#p22 .ch04-tool-key{left:120px;top:868px;width:1680px;border-top:3px solid var(--ink);padding:26px 0;font-size:54px;line-height:1.22;letter-spacing:-1px}
+#p22 .ch04-tool-key strong{color:var(--accent)}
+#p22 .ch04-fallback{top:600px;height:235px}
+#p23 .ch04-body{left:120px;top:318px;width:1680px;display:grid;grid-template-columns:1120px 1fr;gap:48px}
+#p23 .ch04-drawers{width:auto;gap:18px}
+#p23 .ch04-drawer{min-height:204px;grid-template-columns:340px 1fr;padding:34px 40px;background:var(--surface);border:0;border-top:2px solid var(--ink2)}
+#p23 .ch04-drawer::after{display:none}
+#p23 .ch04-drawer.current{border-color:var(--accent)}
+#p23 .ch04-drawer.current .info{color:var(--accent)}
+#p23 .ch04-skills{position:static;width:auto;border:2px solid var(--line);border-top:3px solid var(--accent);padding:40px;font-size:40px;color:var(--ink2)}
+#p23 .ch04-skills strong{display:block;font-size:72px;line-height:1.25;color:var(--ink)}
+#p23 .ch04-fallback{left:1380px;top:625px;width:320px;height:246px}
+#p24 .ch04-mono{display:flex;align-items:center;gap:16px;margin-top:28px;font-size:32px}
+#p24 .chip{background:var(--accent-soft);color:var(--accent);padding:6px 18px;font-weight:700}
+#p24 .ch04-fallback{left:1410px;top:285px;width:300px;height:240px}
+#p25 .ch04-rule{left:120px;top:404px;width:1680px}
+#p25 .ch04-key{font-size:76px;line-height:1.25;margin:0}
+#p25 .decision{display:block;margin-top:20px;font-size:116px;line-height:1.18}
+#p25 .ch04-sub{margin:146px 0 0;max-width:none;border-top:3px solid var(--ink2);background:var(--surface);padding:32px 42px;font-size:40px}
+#p25 .ch04-fallback{left:1410px;top:388px;width:300px;height:260px}
+#p26 .ch04-log{white-space:nowrap}
+#p21 .ch04-key{margin-top:54px;font-size:144px}
+#p21 .ch04-key strong{display:block;margin-top:164px;border-top:3px solid var(--line);padding-top:32px}
+#p24 .ch04-key{margin-top:130px}
+#p24 .ch04-mono{margin-top:244px;border-top:3px solid var(--line);padding-top:36px;font-size:44px}
+</style>
+<section class="page chapter chapter-shell" id="c4" data-steps="1" data-title="AI 产品经理怎么做" aria-label="AI 产品经理怎么做">
+  <div class="chapter-number info pixel-text" data-pixeltext="04" data-size="360" data-cell="5">04</div>
+  <h2 class="info"><span class="pixel-text" data-pixeltext="AI 产品经理" data-size="72">AI 产品经理</span><span class="pixel-text" data-pixeltext="怎么做" data-size="72">怎么做</span></h2>
+  <div class="chapter-case">案例：Oneport · 跨境电商运营 Agent 桌面端</div>
+  <div class="fallback hero-fallback" data-icon="car" aria-hidden="true"></div>
+  <aside class="notes">前面看的是别人家的，现在看我们自己的：Oneport，子公司做的跨境电商 Agent 桌面端，我们对外卖的产品，基于浏览器操作，已上线。</aside>
+</section>
+<section class="page" id="p21" data-steps="1" data-title="明确来源" aria-label="明确来源">
+  <h2 class="info pixel-text" data-pixeltext="明确来源" data-size="96">明确来源</h2>
+  <div class="ch04-body on current">
+    <p class="ch04-key info">真实需求<strong>怎样算办好</strong></p>
+  </div>
+  <aside class="notes"><p>落地一共五步，先看第一步：明确来源，也就是需求从哪来。从运营每天真在干的事开始收真实需求；每条需求不能只记一句愿望，要先定清楚怎样算办好。</p><p>在 Oneport 的目标（Goal）设计里，就把这件事做成了硬规定：每个目标必须同时写明「目标 + 验收条件」，缺了验收条件的候选目标会直接被丢弃。</p></aside>
+</section>
+<section class="page" id="p23" data-steps="1" data-title="设计上下文" aria-label="设计上下文">
+  <h2 class="info pixel-text" data-pixeltext="设计上下文" data-size="96">设计上下文</h2>
+  <div class="ch04-body">
+    <div class="ch04-drawers">
+      <div class="ch04-drawer on"><span class="info">规则</span><span class="ch04-sub">核心提示 · PERSONA</span></div>
+      <div class="ch04-drawer on"><span class="info">数据</span><span class="ch04-sub">OneBase 指标查询</span></div>
+      <div class="ch04-drawer on current"><span class="info">记忆</span><span class="ch04-sub">事实 / 经历 / 做法</span></div>
+    </div>
+    <div class="ch04-skills on current"><strong>Skills</strong>用时才取</div>
+  </div>
+  <div class="fallback ch04-fallback" aria-hidden="true"><i data-icon="windshield" style="width:65%;height:100%"></i><i data-icon="dashcam" style="width:35%;height:100%"></i></div>
+  <aside class="notes"><p>第二步设计上下文，对应车上的挡风玻璃和行车记录仪，管它眼前看到什么、事后记下什么。屏幕上是三块内容，加旁边的 Skills：</p><p>第一块「规则」：放产品的核心提示和 PERSONA（用户自己写的角色与偏好指令文件），作为长期守则带在系统提示词里。</p><p>第二块「数据」：分清两处——经营指标都在云端 OneBase 数据仓，由模型按需调工具查；本地数据库约 60 张声明表，存的是会话、定时任务、目标、计划等本地运行状态。另外独立存着对话存档点（checkpoint），有了存档点就不再灌整份历史，超预算时先压缩。</p><p>第三块「记忆」：分事实、经历、做法三类。记忆功能默认是关的，开启后按需召回相关记忆。</p><p>把规则（spec）、记忆和旁边的 Skills 对比来看：规则是人定死的长期守则，每轮都带着；记忆是过去留下的事实、经历和偏好，开启后按需召回；Skills 是某类专项活的操作手册，平时只给模型看名字和简短描述，用时才取正文。</p></aside>
+</section>
+<section class="page" id="p22" data-steps="1" data-title="工具设计" aria-label="工具设计">
+  <h2 class="info pixel-text" data-pixeltext="工具设计" data-size="96">工具设计</h2>
+  <div class="ch04-body ch04-tools ch04-mono on">
+    <div class="ch04-tool"><h3>AI 浏览器</h3><p>bm_navigate · bm_click<br>bm_snapshot</p></div>
+    <div class="ch04-tool"><h3>经营数据（OneBase）</h3><p>onebase_list_metrics<br>onebase_metric_query</p></div>
+    <div class="ch04-tool"><h3>文件与命令</h3><p>read · write · exec</p></div>
+    <div class="ch04-tool"><h3>网页搜索抓取</h3><p>web_search · web_fetch</p></div>
+    <div class="ch04-tool"><h3>外部能力入口</h3><p>tool_list · tool_search · tool_get · tool_action</p></div>
+    <div class="ch04-tool"><h3>配置与集成</h3><p>mcp_setup · composio · plugin_manage</p></div>
+    <div class="ch04-tool"><h3>生成</h3><p>image_gen · video_gen</p></div>
+    <div class="ch04-tool"><h3>流程与协作</h3><p>cron · skill · request_user_waiting</p></div>
+  </div>
+  <div class="ch04-door on"><div class="ch04-cloud"><span>卖家精灵</span><span>Keepa</span><span>Sif</span></div><div class="ch04-gateway ch04-mono">tool_search → tool_get → tool_action</div></div>
+  <p class="ch04-tool-key info on current">浏览器 15 个 · 数据 11 个 · <strong>4 个按需取工具入口</strong> · 卖家精灵在门后</p>
+  <div class="fallback ch04-fallback" data-icon="steering" aria-hidden="true"></div>
+  <aside class="notes"><p>第三步是明确能力里的工具设计，也就是给车装方向盘。纳入目录的模型可见工具共 55 项（44 项常驻，11 项需 OneBase 配置），其中浏览器 15 个、OneBase 数据 11 个，另外有 4 个按需取工具的入口。</p><p>云端远程工具和自配的 MCP 工具数量多，如果每轮都把全部工具说明放进上下文，会占掉大量上下文空间；只留 tool_list、tool_search、tool_get、tool_action 这 4 个入口，先列或搜、再取说明、最后调用，就能按需取工具。</p><p>Function calling 就在这里：模型说出要用哪个工具、参数是什么。</p><p>卖家精灵在 Oneport 里是云端远程工具，从这 4 个入口进去取，不是和 MCP 并列的另一样；另有一个浏览器插件形态，只做登录填充。</p><p>SP-API 的 284 个工具定义存在，但没有注册进来。</p></aside>
+</section>
+<section class="page" id="p25" data-steps="1" data-title="权限设计" aria-label="权限设计">
+  <h2 class="info pixel-text" data-pixeltext="权限设计" data-size="96">权限设计</h2>
+  <div class="ch04-body ch04-rule"><p class="ch04-key info on">影响别人 · 影响商品 <span class="decision">→ <strong>先问运营</strong></span></p><p class="ch04-sub on current">Oneport：澄清卡 · 工具白名单 · 没有系统级沙箱</p></div>
+  <div class="fallback ch04-fallback" data-icon="brake" aria-hidden="true"></div>
+  <aside class="notes"><p>第三步明确能力里的权限设计，就是定「哪些不能改」，也就是给车定交规、装护栏。对运营 Agent 来说，风险重点在「影响别人、影响商品」这类业务动作上，设计目标是碰到这些动作先问运营。</p><p>从设计层现状来看，Oneport 目前分三块：第一，开工前用工具白名单筛一轮可用工具（MCP 也只有允许和拒绝名单）；第二，没有操作系统级沙箱；第三，「先问人」是提示词约定加一张澄清卡，不是强制审批拦截，也没有「影响别人、影响商品」的自动识别。</p><p>也就是说，这条规矩今天主要靠提示词守着，把软约定补成硬护栏，正是产品经理要补的地方。</p></aside>
+</section>
+<section class="page" id="p24" data-steps="1" data-title="业务知识 Skills 化" aria-label="业务知识 Skills 化">
+  <h2 class="info pixel-text" data-pixeltext="业务知识 Skills 化" data-size="96">业务知识 Skills 化</h2>
+  <div class="ch04-body ch04-sop">
+    <p class="ch04-key info on">口口相传 → <strong>写下来</strong></p>
+    <div class="on current"><div class="ch04-mono"><span class="chip">skill-creator</span> · <span class="chip">onebase-data-query</span></div></div>
+  </div>
+  <div class="fallback ch04-fallback" data-icon="nav" aria-hidden="true"></div>
+  <aside class="notes"><p>第四步业务知识 Skills 化，也就是固定成 SOP、给司机配驾驶手册（Skills），把口口相传的做法写下来。</p><p>屏幕上的两个名字代表两类技能：onebase-data-query 是查经营数据时优先加载的官方技能（另外飞书插件也自带了 27 个技能）；skill-creator 是用来创建个人技能的官方技能。</p><p>运营可以把日常摸索出的做法，通过 skill-creator 保存成个人的 SKILL.md，扫描入库后，后续会话就能检索加载。</p></aside>
+</section>
+<section class="page" id="p26" data-steps="1" data-title="设计任务闭环" aria-label="设计任务闭环">
+  <h2 class="info pixel-text" data-pixeltext="设计任务闭环" data-size="96">设计任务闭环</h2>
+  <div class="flow ch04-loop" data-closed data-card-loop>
+    <div class="station info on">触发<small>定时任务</small></div>
+    <div class="station info on">执行技能<small>技能 + 工具</small></div>
+    <div class="station info on">问人<small>等待卡片</small></div>
+    <div class="station info on">交付<small>飞书机器人消息</small></div>
+    <div class="station info on current">留记录<small>会话记录 · <span class="ch04-log">执行日志</span></small></div>
+    <div class="ch04-task on">库存预警</div>
+    <div class="ch04-person on" data-icon="person" aria-hidden="true"></div>
+  </div>
+  <div class="fallback ch04-fallback" data-icon="engine" aria-hidden="true"></div>
+  <aside class="notes"><p>这一页「设计任务闭环」还是第四步，是 Skills 写好以后让业务任务跑起来的那一圈。小圈 Harness 自带，大圈产品经理设计。02 章讲的「看 → 想 → 做」是干活时底座自转的小圈；屏幕上的「触发 → 执行技能 → 问人 → 交付 → 留记录」是产品经理要串起来的业务大圈。</p><p>画面上走的「库存预警」只是演示闭环怎么转，Oneport 里并没有这个专门模块。</p><p>看准三个实际边界：第一，交付是飞书或 Telegram 机器人发消息，不是直接生成飞书文档；第二，留记录是把会话记录和执行日志存进本地数据库，而记忆功能默认是关的，不能把记忆当留记录；第三，Oneport 跑在运营本机上，电脑睡眠或关机期间没有云端接班，错过的定时任务会记为「跳过」不补做，所以「24 小时盯库存」这种说法要慎用。</p></aside>
+</section>
+<section class="page" id="p20" data-steps="1" data-title="五步" aria-label="五步">
+  <h2 class="info pixel-text" data-pixeltext="五步" data-size="96">五步</h2>
+  <ul class="ch04-body ch04-five info-list">
+    <li class="on"><span>①</span><span class="info">明确来源</span></li>
+    <li class="on"><span>②</span><span class="info">设计上下文</span></li>
+    <li class="on"><span>③</span><span class="info">明确能力：工具设计 · 权限设计</span></li>
+    <li class="on"><span>④</span><span class="info">业务知识 Skills 化</span></li>
+    <li class="on current"><span>⑤</span><span class="info">评测</span></li>
+  </ul>
+  <div class="fallback ch04-fallback" data-icon="car" aria-hidden="true"></div>
+  <div class="fallback ch04-fallback-parts" aria-hidden="true"><i class="on current" data-icon="engine"></i></div>
+  <aside class="notes"><p>最后把这五步收个尾：第一步明确来源，从业务里收真实需求，定清怎样算办好；第二步设计上下文，配好挡风玻璃和行车记录仪；第三步明确能力，其中工具设计是方向盘，权限设计是交规和护栏。</p><p>第四步业务知识 Skills 化是给司机配驾驶手册；Loop 是 Harness 自带的小圈，产品经理要在这个小圈外面设计任务闭环，串起让业务任务从头跑到尾的业务大圈。</p><p>第五步是评测：底层浏览器工具点得对不对，由大模型看截图判分；中间层单次任务跑得通不通，用自动检查脚本判分——这两层是研发测工具和底座。最顶上真实业务干得好不好，Oneport 目前没有业务任务集，要由产品经理定真实工作的考核指标。</p></aside>
+</section>

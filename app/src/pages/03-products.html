@@ -1,0 +1,137 @@
+<style>
+/* Chapter 03 only: information left, illustrations right. */
+.ch03-copy{position:absolute;left:112px;top:370px;width:1110px;font-size:60px;line-height:1.4}
+.ch03-copy p{margin:0 0 48px}.ch03-sub{font-size:36px;line-height:1.5}
+.ch03-cards{position:absolute;left:1260px;top:290px;width:548px;display:grid;gap:24px}
+.ch03-cards .card{padding:10px}.ch03-cards .card>img{height:190px;filter:brightness(.72)}
+.ch03-cards .card>figcaption{padding:12px 10px 4px;font-size:48px}.ch03-cards .card small{font-size:24px;color:var(--ink2)}
+.ch03-stairs{width:560px;right:112px;bottom:100px;min-height:172px}
+.ch03-stairs>.stair{font-size:36px;padding:12px 4px;height:calc(58px + var(--level)*32px)}
+.ch03-stairs>.stair.current{color:var(--accent)}
+.ch03-stairs .ch03-selected.on{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.ch03-icon{display:block;width:84px;height:84px;margin:0 auto 24px;opacity:.6}
+.ch03-icon svg,.ch03-cloud-fallback svg{width:100%;height:100%;shape-rendering:crispEdges}
+.ch03-flow{position:absolute;left:112px;top:350px;width:1696px;height:290px;padding:0 0 70px;gap:72px}
+.ch03-flow .station{font-size:48px;white-space:nowrap}.ch03-flow .station small{font-size:36px}
+.ch03-keyword{position:absolute;left:112px;top:822px;font-size:60px;line-height:1.2}
+.ch03-small-shot{position:absolute;right:112px;top:660px;width:480px;padding:10px}
+.ch03-small-shot>img{height:300px;filter:brightness(.65);border:0}
+#p12 .ch03-main-stairs{position:absolute;left:120px;bottom:120px;width:1680px;gap:16px}
+#p12 .ch03-main-stairs>.stair{height:calc(172px + var(--level)*186px);padding:18px 32px;font-size:68px;border:0;border-top:5px solid var(--ink);background:var(--surface);color:var(--ink)}
+#p12 .ch03-main-stairs>.is-gray{color:var(--ink);background:var(--line);border-color:var(--ink2);opacity:.5}
+#p12 .stair small{display:block;margin-top:10px;font:500 38px/1.25 'AH Noto',sans-serif}
+#p13 .ch03-copy{left:120px;top:298px;width:1680px}
+#p13 .ch03-copy>.info{margin:0;font-size:94px;line-height:1.15;letter-spacing:-2px}
+#p13 .ch03-sub{margin:14px 0 0;font-size:40px;font-weight:500;color:var(--ink2)}
+#p13 .ch03-cards{left:120px;top:508px;width:1240px;grid-template-columns:1fr 1fr;gap:32px}
+#p13 .card{padding:0;border:0;background:none}
+#p13 .card>img{height:auto;filter:none;border:1px solid var(--line)}
+#p13 .card>figcaption{padding:14px 0 0;font-size:36px;font-weight:700}
+#p13 .ch03-stairs{right:120px;width:402px;bottom:114px}
+#p13 .ch03-stairs>.stair{padding:12px 0;text-align:center;font-size:28px}
+#p14 .ch03-flow{left:120px;top:300px;width:1680px;height:246px;gap:60px;padding:0}
+#p14 .station,#p18 .station{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface);border-top:3px solid var(--ink2)}
+#p14 .station.current,#p18 .station.current{border-color:var(--accent)}
+#p14 .ch03-icon{margin:0 auto 14px;width:72px;height:72px;opacity:1}
+#p14 .ch03-workers{height:86px}
+#p14 .station small{margin-top:6px;font-weight:500}
+#p14 .ch03-small-shot,#p17 .ch03-small-shot{right:120px;width:648px;top:578px;padding:0;border:1px solid var(--line)}
+#p14 .ch03-small-shot>img,#p17 .ch03-small-shot>img{height:auto;filter:none}
+#p14 .ch03-keyword{left:120px;top:710px;font-size:94px;letter-spacing:-2px}
+#p14 .ch03-keyword::before{content:'';display:block;width:80px;border-top:6px solid var(--accent);margin-bottom:28px}
+#p14 .ch03-references{position:absolute;left:120px;top:875px;display:grid;justify-items:start;gap:8px;font-size:36px;line-height:1.25;color:var(--ink2)}
+#p14 .ch03-references a{color:inherit;text-underline-offset:5px;pointer-events:auto;white-space:nowrap;letter-spacing:-.85px}
+.ch03-workers{display:flex;justify-content:center;gap:18px;height:108px}
+.ch03-workers>.ch03-icon{width:72px;height:84px;margin:0;opacity:.3}
+.ch03-flow .station.on .ch03-workers>.ch03-icon:nth-child(2){opacity:.85}
+#p16 .ch03-copy{left:120px;top:305px;width:1680px;display:flex;gap:56px;font-size:52px}#p16 .ch03-copy p{margin:0}#p16 .ch03-copy p+p{border-left:2px solid var(--line);padding-left:56px}
+#p16 .ch03-cards{left:120px;top:400px;width:1680px;grid-template-columns:1fr 1fr;gap:40px}#p16 .card{border:none;padding:0;background:none}#p16 .card>img{display:block;width:100%;height:auto;object-fit:contain;background:var(--surface);border:0;filter:none}#p16 figcaption{padding:18px 0}#p16 figcaption small{margin-left:12px;font-size:36px;font-weight:500;color:var(--ink2)}
+#p17 .ch03-copy{left:120px;top:304px;width:836px}
+#p17 .info-list{border-top:2px solid var(--line)}
+#p17 .info-list>li{display:block;align-content:center;min-height:138px;padding:18px 0;font-size:54px;line-height:1.25}
+#p17 .ch03-date{margin:26px 0 0;font-size:30px;color:var(--ink2)}
+#p17 .ch03-cloud{left:1040px;top:184px;width:760px;height:292px}
+#p17 .ch03-small-shot{width:762px;top:486px}
+.ch03-cloud{position:absolute;left:1260px;top:300px;width:540px;height:330px}
+.ch03-cloud-fallback{position:absolute;inset:0;flex-direction:column;opacity:.55}
+.ch03-cloud-fallback>.ch03-cloud-icon{width:160px;height:160px}
+.ch03-cloud-fallback>.ch03-screens{display:flex;gap:24px;height:100px}
+.ch03-screens i{display:block;width:100px;height:100px;position:relative}
+.ch03-screens i::after{content:'';position:absolute;left:25px;top:28px;width:12px;height:12px;background:var(--accent);animation:ch03-screen 1.6s steps(3) infinite}
+.ch03-screens i:nth-child(2)::after{animation-delay:-.5s}.ch03-screens i:nth-child(3)::after{animation-delay:-1s}
+.ch03-closed-laptop:not(.on){visibility:hidden}
+.ch03-closed-laptop{width:110px;height:14px;border:3px solid var(--accent);transform:skewX(-25deg);margin:32px auto 0}
+@keyframes ch03-screen{to{transform:translateX(36px)}}
+#p18 .ch03-flow{left:120px;top:332px;width:1680px;height:382px;gap:76px;padding:0}
+#p18 .ch03-icon{width:138px;height:138px;margin:0 0 32px;opacity:1}
+#p18 .station{font-size:64px}
+#p18 .ch03-keyword{left:120px;top:846px;font-size:56px}
+#p18 .ch03-keyword span{color:var(--accent);background:var(--accent-soft);padding:8px 18px}
+#p18 .ch03-stairs{right:120px;bottom:106px}
+#p19 .ch03-table{position:absolute;left:112px;top:152px;width:1696px;font-size:32px;line-height:1.35}
+#p19 .ch03-table th,#p19 .ch03-table td{padding:12px;height:144px;overflow-wrap:normal;vertical-align:middle}
+#p19 .ch03-table th{height:84px}#p19 .ch03-table thead th.info{font-size:48px;line-height:1.1}#p19 .ch03-table th:first-child{width:320px}
+#p19 .ch03-table tbody tr:not(.on){visibility:hidden}
+</style>
+<section class="page" id="p12" data-steps="1" data-title="四级台阶" aria-label="四级台阶">
+  <div class="stairs ch03-main-stairs">
+    <div class="stair info on">工具<small>一问一答</small></div><div class="stair info on">协作者<small>指令触发</small><small>自动闭环</small></div><div class="stair info on current" data-gray="0">同事<small>独立工作区</small><small>主动接活</small></div><div class="stair info on current" data-gray="0">组织<small>分工调度</small><small>多 Agent 协同</small></div>
+  </div>
+  <aside class="notes"><p>前面看完了四家 Harness 底座，从这一页开始，我们转来看用底座搭出来的 Agent 产品。我们怎么看待 AI，决定了给它搭什么样的 Harness。这四级台阶不是死板的硬分类，而是帮大家看懂市面上常见 Agent 产品形态的一把尺子。</p><p>第一级「工具」，就是普通聊天框，一问一答，没有 Loop，不会自己动手。第二级「协作者」，给模型套上了完整的 Harness 和 Loop，默认等你下指令，它自己把一圈圈循环跑完。</p><p>第三级「同事」，在 Harness 外面多配了事件触发和独立工作区——有的是每单独立会话和工作目录，有的是直接配一台云电脑，不用人盯着，来活就能自己接、后台接着干。第四级「组织」，再加一层总管路由和多会话调度，分拣派单，多个 Agent 并行干活。</p></aside>
+</section>
+<section class="page" id="p13" data-steps="1" data-title="Coding Agent" aria-label="Coding Agent">
+  <h2 class="info english">Coding Agent</h2>
+  <div class="ch03-copy"><p class="info pixel-text on" data-pixeltext="默认由你发起" data-size="72">默认由你发起</p><p class="ch03-sub on current">终端 / IDE · 改文件 / 提 PR</p></div>
+  <div class="ch03-cards">
+    <figure class="card on"><img src="images/products/claude-code.png" alt="Claude Code"><figcaption>Claude Code</figcaption></figure>
+    <figure class="card on"><img src="images/products/codex.png" alt="Codex"><figcaption>Codex</figcaption></figure>
+  </div>
+  <div class="stairs stairs--small stairs--corner ch03-stairs"><div class="stair" data-state="gray">工具</div><div class="stair ch03-selected on current">协作者</div><div class="stair" data-state="dark">同事</div><div class="stair" data-state="dark">组织</div></div>
+  <aside class="notes"><p>前面看的是 Claude Code 和 Codex 壳子里面怎么搭，这一页看它们的产品形态。这两款放在一起讲，代表最常见的第二级形态「协作者」。</p><p>它们日常最常用在终端或 IDE 里，默认是你开口下指令它才动。跑完循环后，直接改好文件，或者在云端提个 PR——也就是把代码改动提交出来，等人来审。</p><p>说它是「协作者」只是按常见默认用法归类，不是硬边界。现在两家官方也都支持云端运行、定时任务和 GitHub 等事件触发；只要提前设好触发规则，它们也能自己在后台跑。</p></aside>
+</section>
+<section class="page" id="p14" data-steps="1" data-title="Super Agent · DeepSeek 研究原型" aria-label="Super Agent · DeepSeek 研究原型">
+  <h2 class="info english">Super Agent · DeepSeek 研究原型</h2>
+  <div class="flow ch03-flow" data-token>
+    <div class="station info on"><i class="ch03-icon" data-icon="chat" aria-hidden="true"></i>GitHub · 飞书</div>
+    <div class="station info on"><i class="ch03-icon" data-icon="desk" aria-hidden="true"></i>Router<small>负责分拣</small></div>
+    <div class="station info on"><div class="ch03-workers" aria-hidden="true"><i class="ch03-icon" data-icon="station"></i><i class="ch03-icon" data-icon="station"></i><i class="ch03-icon" data-icon="station"></i></div>Worker × 3<small>负责执行</small></div>
+    <div class="station info on current"><i class="ch03-icon" data-icon="chat" aria-hidden="true"></i>回原对话</div>
+  </div>
+  <div class="ch03-keyword info on current">少占人的注意力</div>
+  <figure class="card ch03-small-shot on"><img src="images/products/dsh-superagent.png" alt="Super Agent 原型仓库"></figure>
+  <div class="ch03-references">
+    <a href="https://x.com/DeepSeekHarness/status/2116857257245987236" target="_blank" rel="noopener noreferrer">设计文章 · x.com/DeepSeekHarness</a>
+    <a href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener noreferrer">原型仓库 · github.com/deepseek-ai/dsh-superagent-prototype</a>
+  </div>
+  <aside class="notes"><p>再往上看第三级「同事」。DeepSeek 发过一篇 Super-agent 设计文章，也开源了一个研究原型。官方明说这只是研究原型，不是正式产品，和内部版本、和文章里的完整设计也不完全一样。</p><p>它要解决什么问题？按他们团队自己的经验，几个任务并行跑的时候，人得手动切窗口，通常同时只能跟进 3 到 5 个活跃会话。所以它的设计原则就一句：尽量少占人的注意力。</p><p>顺着屏幕四站看：第一站进消息，文章写接 IM 和 GitHub，公开原型支持 GitHub 和可选的飞书，飞书默认是关的。第二站 Router（原型里叫主 Session），负责接单分拣。第三站 Worker（原型里叫执行器 Session），图上画 3 个只是示意，不是固定数量，实际是每张工单开一个独立会话和工作目录去干。第四站干完报就绪，直接回到原来的对话里交差。</p></aside>
+</section>
+<section class="page" id="p16" data-steps="1" data-title="Personal Agent" aria-label="Personal Agent">
+  <h2 class="info english">Personal Agent</h2>
+  <div class="ch03-copy"><p class="info pixel-text on" data-pixeltext="自己的电脑" data-size="72">自己的电脑</p><p class="info pixel-text on" data-pixeltext="自己接活" data-size="72">自己接活</p><p class="info pixel-text on" data-pixeltext="人不在也干" data-size="72">人不在也干</p></div>
+  <div class="ch03-cards"><figure class="card on current"><img src="images/products/muse.png" alt="Muse"><figcaption class="info">Muse <small>Meta</small></figcaption></figure><figure class="card on current"><img src="images/products/dots.png" alt="Dots"><figcaption class="info">Dots <small>OpenAI</small></figcaption></figure></div>
+  <aside class="notes"><p>想要一个像同事一样的个人 Agent，就得给它配齐屏幕上这三样：自己的电脑、自己接活、人不在也干。右边这两款产品都是这个思路，我们分开看它们各自怎么设计的。</p><p>先看 Meta 的 Muse：它在云端配了带浏览器、文件系统和终端的专属电脑；定好目标后能按定时或相关事件自己跟进，也会主动发消息找你；长任务在你关掉 App 后还会接着跑，由另一个独立代理把关出网，碰到发邮件、下单付款会停下来找你批准。</p><p>再看 OpenAI 的 Dots：每个 Dot 在云端自带一台电脑和浏览器，和你自己设备的登录态隔开；除了按指定时间或事件触发，它还能自己判断什么时候暂停、什么时候醒来接着干；就算你的设备关机了，它的云端任务照样跑，对外动作靠自动审查把关——写草稿不等于直接发送，改密码必须归你本人，需要时你也能随时接管它的浏览器。</p></aside>
+</section>
+<section class="page" id="p17" data-steps="1" data-title="Grok Bot" aria-label="Grok Bot">
+  <h2 class="info english">Grok Bot</h2>
+  <div class="ch03-copy"><ul class="info-list"><li class="info on">一个账号一台云电脑 ·<br>每个 Bot 一块屏</li><li class="info on">关掉 App 也在跑</li><li class="info on current">定时 · 事件都能叫醒它</li><li class="info on current">登录、验证码交还给人</li></ul><p class="ch03-date">2026-11-02 · 1.0 正式版</p></div>
+  <div class="ch03-cloud" id="ch03-cloud" data-inset="ch03-cloud" aria-hidden="true"><div class="fallback ch03-cloud-fallback"><i class="ch03-cloud-icon" data-icon="cloud-pc"></i><div class="ch03-screens"><i data-icon="screen"></i><i data-icon="screen"></i><i data-icon="screen"></i></div><div class="ch03-closed-laptop on"></div></div></div>
+  <figure class="card ch03-small-shot on"><img src="images/products/grok-bot.png" alt="Grok Bot"></figure>
+  <aside class="notes"><p>再看 Grok Bot（官方页面现署名 SpaceXSI，2026 年 11 月刚发 1.0 正式版）。官网上虽然有标题写“每个 Bot 有自己的电脑”，但按官方技术文档的明确口径，云电脑是按用户账号配的：同一账号下的多个 Bot 共用一台云电脑、共享文件和登录态，每个 Bot 分一块独立屏幕同时干活，再由一个主 Bot 对接你、协调其他 Bot。</p><p>看第二、第三行：关掉 App、电脑或手机，后台任务和日常流程照样在云端跑。只要提前配好触发规则，除了定时，像 Slack 消息、GitHub 等系统事件、发给 Bot 的邮件或 webhook 都能叫醒它。</p><p>第四行是它的人机接管设计：普通账号密码走私密代填，直接填进网页，Bot 看不见明文；遇到单点登录（SSO）、passkey 或过不去的验证码，Bot 不会硬闯，而是把云电脑交出来让你接管操作，办完再把控制权还给它。</p></aside>
+</section>
+<section class="page" id="p18" data-steps="1" data-title="谁说同事只能是一个" aria-label="谁说同事只能是一个">
+  <h2 class="info pixel-text" data-pixeltext="谁说同事只能是一个" data-size="96">谁说同事只能是一个</h2>
+  <div class="flow ch03-flow" data-token><div class="station info on"><i class="ch03-icon" data-icon="person" aria-hidden="true"></i>1 个 Agent</div><div class="station info on"><i class="ch03-icon" data-icon="people" aria-hidden="true"></i>一群 Agent</div><div class="station info on current"><i class="ch03-icon" data-icon="org" aria-hidden="true"></i>一个组织</div></div>
+  <div class="ch03-keyword info on current"><span>总管调度</span> · <span>角色分工</span> · <span>并行执行</span></div>
+  <div class="stairs stairs--small stairs--corner ch03-stairs"><div class="stair" data-state="gray">工具</div><div class="stair" data-state="gray">协作者</div><div class="stair" data-state="gray">同事</div><div class="stair ch03-selected on current">组织</div></div>
+  <aside class="notes"><p>到了第四级台阶，谁说 AI 同事只能是一个？但光同时开几个 Agent 窗口，那只叫「一群 Agent」，还不算「一个组织」。</p><p>从「一群 Agent」变成「一个组织」，Harness 上多出的是屏幕底下这三样：总管调度、角色分工、并行执行。像刚才看的 Super Agent 原型用一个 Router 加多个 Worker，Grok Bot 用主 Bot 协调多块屏幕上的其他 Bot，就已经是小组织了。</p><p>再往前走一步，这是我个人的判断：未来的 AI 组织，甚至会由 AI 自己招人、自己定分工。</p></aside>
+</section>
+<section class="page" id="p19" data-steps="1" data-title="对比表" aria-label="对比表">
+  <table class="cmp ch03-table"><thead><tr class="on current"><th></th><th class="info">在哪干活</th><th class="info">谁来触发</th><th class="info">怎么交付</th><th class="info">护栏</th></tr></thead><tbody>
+    <tr class="on"><td>Claude Code / Codex</td><td>本机终端/IDE；<br>也能上云</td><td>你开口；<br>也可定时/事件</td><td>改本地文件；<br>云端提PR</td><td>权限模式/沙箱+审批</td></tr>
+    <tr class="on"><td>Super Agent</td><td>每单独立会话和目录</td><td>名单内的人点名它</td><td>回原对话，附 PR</td><td>白名单、授权单、<br>先观察</td></tr>
+    <tr class="on"><td>Grok Bot</td><td>账号下共享云电脑</td><td>你发话、定时、事件</td><td>聊天回报，发信先问</td><td>自动审查加先问规则</td></tr>
+    <tr class="on"><td>Muse</td><td>专属云端虚拟机</td><td>你发话、定时、事件</td><td>消息通知，下单先问</td><td>另一个代理把关出网</td></tr>
+    <tr class="on"><td>Dots</td><td>每个 Dot 自带云电脑</td><td>你发话、定时、事件</td><td>聊天里回报，<br>草稿待审</td><td>自动审查，<br>改密码归你</td></tr>
+  </tbody></table>
+  <aside class="notes"><p>这一页用同一把尺子，把前面讲的内容排成五行对照：第一行是两款 Coding Agent，第二行是 Super Agent 研究原型，下面三行是三款个人 Agent。表头这四列——在哪干活、谁来触发、怎么交付、护栏，就是产品经理拆解和设计 Agent 产品的四个问题。</p><p>看表的时候注意第二行 Super Agent 原型：它在哪干活写的是「每单独立会话和目录」，这只是把每张工单干活的文件夹分开，不等于系统权限隔离；它的护栏靠的也是白名单、授权单加提示词，不是沙箱。</p></aside>
+</section>
