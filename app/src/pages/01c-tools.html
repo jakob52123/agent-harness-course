@@ -1,0 +1,132 @@
+<style>
+#p36 .deck, #p37 .deck, #p38 .deck, #p39 .deck, #p40 .deck {position:absolute;left:120px;right:120px;top:282px}
+#p36 .intro, #p37 .intro, #p38 .intro, #p39 .intro, #p40 .intro {font-size:36px;font-weight:500;color:var(--ink2)}
+#p36 .pair {display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:32px}
+#p36 article {border-top:3px solid var(--ink);padding-top:12px}
+#p36 .count {display:flex;align-items:baseline;gap:20px;font-size:48px;white-space:nowrap}
+#p36 .count b {color:var(--accent);font-size:88px;line-height:1.2}
+#p36 .count small {font-size:36px;font-weight:500}
+#p36 .names {font-size:36px;color:var(--ink2);margin:8px 0 20px}
+#p36 figure img {width:100%;height:384px;display:block;object-fit:contain;background:var(--surface)}
+#p36 figcaption, #p39 figcaption {margin-top:10px;font-size:36px}
+#p36 figcaption a, #p39 figcaption a {color:var(--ink2);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:6px;pointer-events:auto}
+#p37 .stations {margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px}
+#p37 article {background:var(--surface);padding:26px 36px 38px;border-top:4px solid var(--line);display:flex;flex-direction:column;height:330px}
+#p37 article:nth-child(2) {border-color:var(--accent)}
+#p37 article:nth-child(2) strong {color:var(--accent)}
+#p37 strong {font-size:64px;line-height:1.25}
+#p37 .action {font-size:48px;line-height:1.28;margin-top:12px}
+#p37 .record {font-size:36px;color:var(--ink2);margin-top:auto}
+#p37 .recap {margin-top:76px;padding-top:22px;border-top:2px solid var(--ink);font-size:52px}
+#p37 .loop {font-size:38px;margin-top:12px;color:var(--ink2)}
+#p38 .matrix {display:grid;grid-template-columns:740px 1fr;gap:80px;margin-top:24px}
+#p38 .tiers .row {display:grid;grid-template-columns:300px 1fr;align-items:center;height:120px;border-top:2px solid var(--line);font-size:52px}
+#p38 .tiers .row:last-child {border-bottom:2px solid var(--line)}
+#p38 .rules {background:var(--surface);border-top:4px solid var(--ink);padding:18px 32px 24px}
+#p38 .label {font-size:36px;color:var(--ink2)}
+#p38 pre {margin:16px 0 0;line-height:1.5;font-size:30px}
+#p38 .order {margin-top:16px;padding-top:12px;border-top:2px solid var(--line);font-size:48px}
+#p38 .order b {color:var(--accent)}
+#p38 .cost {margin-top:40px;font-size:50px;border-left:8px solid var(--accent);padding-left:24px}
+#p39 .split {margin-top:32px;display:grid;grid-template-columns:820px 780px;gap:80px}
+#p39 .wall {display:flex;align-items:center;gap:44px;border-top:2px solid var(--line);height:116px;font-size:48px}
+#p39 .wall b {font-size:52px}
+#p39 .force {border-top:2px solid var(--line);margin-top:2px;padding-top:48px;font-size:48px}
+#p39 .platform {font-size:36px;color:var(--ink2);margin-top:32px}
+#p39 figure img {width:100%;height:auto;display:block}
+#p39 .inside {font-size:48px;margin-top:16px}
+#p39 .stat {display:flex;gap:24px;align-items:baseline;font-size:48px;line-height:1.2;margin-top:12px}
+#p39 .stat b {font-size:94px;color:var(--accent)}
+#p39 .scope {font-size:36px;color:var(--ink2)}
+#p40 .summary {margin-top:24px}
+#p40 .line {display:grid;grid-template-columns:430px 443px 60px 1fr;align-items:center;border-top:2px solid var(--line);min-height:100px;font-size:36px}
+#p40 .line:last-child {border-bottom:2px solid var(--line)}
+#p40 .line strong {font-size:48px}
+#p40 .arrow, #p40 .path i {color:var(--accent);font-style:normal}
+#p40 .caption {margin-top:32px;font-size:36px;color:var(--ink2)}
+#p40 .path {margin-top:8px;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-top:4px solid var(--accent);padding:18px 40px;font-size:48px}
+</style>
+
+<section class="page" id="p36" data-steps="1" data-title="Tools" aria-label="Tools">
+  <h2 class="info pixel-text" data-pixeltext="Tools" data-size="96">Tools</h2>
+  <div class="deck">
+    <div class="intro">工具：Agent 能做的具体动作</div>
+    <div class="pair">
+      <article><div class="count info">Pi <b>4</b><small>个默认工具，靠组合</small></div>
+        <div class="names">read · write · edit · bash</div>
+        <figure><img src="images/s1/pi-tools.webp" alt="Pi 默认工具的官网演示"><figcaption><a href="https://pi.dev" target="_blank" rel="noopener noreferrer">pi.dev 官网演示</a></figcaption></figure>
+      </article>
+      <article><div class="count info">Claude Code <b>50 多</b><small>个工具，按场景</small></div>
+        <div class="names">WebSearch · Agent · Skill · CronCreate …</div>
+        <figure><img src="images/s1/t-cc-tools.webp" alt="Claude Code 官方工具表"><figcaption><a href="https://code.claude.com/docs/en/tools-reference" target="_blank" rel="noopener noreferrer">官方工具表 · code.claude.com</a></figcaption></figure>
+      </article>
+    </div>
+  </div>
+  <aside class="notes"><p>我们直接切入重点，先讲工具。这里是一个对比：Pi 是极简路线，简单在它默认只开 4 个工具，只能通过这 4 个工具的组合去实现不同的功能；与之相对的是 Claude Code，它有 50 多种工具，根据不同的场景去触发。</p><p>工具，就是 Agent 能做的具体动作。Pi 这 4 个是 read 读文件、write 写文件、edit 改文件、bash 跑命令；Claude Code 的官方工具表列了 50 多个。Pi 要搜文件，就用 bash 跑一条搜索命令；要上网，也是 bash。工具少，提示词就短，模型也不用挑。Claude Code 是每一类事给一个专门的工具：搜索有搜索的，网页有网页的，派子 Agent 有派子 Agent 的。专门的工具还有个好处：可以一个一个管权限，读文件不用问你，跑命令要先问你——这个后面讲。</p><p>那 LLM 到底是怎么用上这些工具的？</p></aside>
+</section>
+
+<section class="page" id="p37" data-steps="1" data-title="Function Calling" aria-label="Function Calling">
+  <h2 class="info pixel-text" data-pixeltext="Function Calling" data-size="96">Function Calling</h2>
+  <div class="deck">
+    <div class="intro">Pi 真实运行记录 · 节选</div>
+    <div class="stations">
+      <article><strong class="info">LLM</strong><div class="action info">说：调哪个工具、<br>传什么参数</div><div class="record">"name": "read"</div></article>
+      <article><strong class="info">Harness</strong><div class="action info">做：执行，<br>把结果送回 LLM</div><div class="record">执行读取，返回文件内容</div></article>
+      <article><strong class="info">LLM</strong><div class="action info">看完结果，<br>决定下一步</div><div class="record">"name": "bash"</div></article>
+    </div>
+    <div class="recap info">LLM 提出调用，Harness 执行并返回结果</div>
+    <div class="loop">这个调用过程，被 Agent Loop 组织起来，持续推进任务</div>
+  </div>
+  <aside class="notes"><p>这就是 Function Calling。大家注意，LLM 自己是不能读文件、不能跑命令的，它只会输出文字。Function Calling 就是让它输出一段格式固定的调用请求：调哪个工具，传什么参数；真正动手的是 Harness。</p><p>大模型请求读取表格，工具是 read，参数是文件名。</p><p>Harness 执行读取，并返回文件内容。这就是一次完整的工具调用往返。</p><p>模型继续判断，提出调用，这次是用 bash 跑一段 Python 去算数，循环就继续下去了。</p><p>所以 Function Calling 讲的是「怎么调用工具」：LLM 提出调用，Harness 执行并返回结果。这个调用过程，被 Agent Loop 组织起来，持续推进任务。Agent Loop 我们后面串起来讲。</p></aside>
+</section>
+
+<section class="page" id="p38" data-steps="1" data-title="Permission" aria-label="Permission">
+  <h2 class="info pixel-text" data-pixeltext="Permission" data-size="96">Permission</h2>
+  <div class="deck">
+    <div class="intro">权限：工具执行前，先对一遍规则</div>
+    <div class="matrix">
+      <div class="tiers"><div class="row"><b class="info">Allow</b>直接做</div><div class="row"><b class="info">Ask</b>先问人</div><div class="row"><b class="info">Deny</b>不准做</div></div>
+      <div class="rules"><div class="label">CLAUDE CODE 官方示例</div>
+        <pre>"allow": ["Bash(npm run *)",
+          "Bash(git commit *)"],
+"deny":  ["Bash(git push *)"]</pre>
+        <div class="order"><span class="label">检查顺序</span>　<b class="info">deny → ask → allow</b></div>
+        <div class="label">先命中哪条，听哪条</div>
+      </div>
+    </div>
+    <div class="cost info">代价：问得太多，人就闭眼点同意</div>
+  </div>
+  <aside class="notes"><p>Tool Use 有四个重点概念：工具、Function Calling、Permission 和 Sandbox。前两个讲完了，接下来是 Permission，也就是安全边界和权限：哪些可以直接做，哪些需要特殊处理。</p><p>怎么限制？每次工具调用执行之前，Harness 先拿规则对一遍。</p><p>分三档：Allow 直接做，比如读文件、搜代码、改项目文件；Ask 先问人，比如删文件、装依赖、git push 推代码；Deny 不准做，比如读密钥、改系统目录。为什么要分级？因为动作的风险不一样：读错一个文件无所谓；删文件、推代码，做了就撤不回来；密钥、系统目录，碰都不该碰。</p><p>右边是 Claude Code 官方文档里的配置示例：npm 脚本和 git commit 直接放行，git push 一律拒绝。同一个动作放哪一档，是团队自己定的。</p><p>规则冲突了听谁的？Claude Code 是先看 deny，再看 ask，最后看 allow，先命中哪条就听哪条。所以 deny 里写了 git push，allow 里怎么写都推不出去。</p><p>但问多了也有问题：人会烦，最后闭眼点同意。Anthropic 管这个叫「审批疲劳」，反而更不安全。所以还要第四个概念：沙箱。</p></aside>
+</section>
+
+<section class="page" id="p39" data-steps="1" data-title="Sandbox" aria-label="Sandbox">
+  <h2 class="info pixel-text" data-pixeltext="Sandbox" data-size="96">Sandbox</h2>
+  <div class="deck">
+    <div class="intro">沙箱：给 Agent 一个关上门的房间</div>
+    <div class="split">
+      <div><div class="wall"><b class="info">文件</b>只能改工作文件夹里的东西</div><div class="wall"><b class="info">网络</b>只能连批准过的网站</div>
+        <div class="force info">由操作系统强制，不靠提示词</div><div class="platform">Claude Code<br>macOS · Seatbelt　 Linux · bubblewrap</div>
+      </div>
+      <div><figure><img src="images/s1/t-sandbox-blog.webp" alt="Anthropic 工程博客的沙箱说明"><figcaption><a href="https://www.anthropic.com/engineering/claude-code-sandboxing" target="_blank" rel="noopener noreferrer">Anthropic 工程博客 · 2025-10-20</a></figcaption></figure>
+        <div class="inside info">房间里不用问，出房间才问</div><div class="stat info">确认弹窗少了 <b>84%</b></div><div class="scope">Anthropic 内部数据</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>Sandbox 沙箱，就是给模型一个独立的、隔离的运行环境。你可以理解成给 Agent 一个关上门的房间。</p><p>两道墙：文件，只能改工作文件夹里的东西；网络，只能连批准过的网站。注意它默认只拦「改」，不拦「读」，所以网络这道墙很关键：就算读到了密钥，也发不出去。</p><p>这两道墙是操作系统强制的，不靠提示词：Claude Code 在 Mac 上用系统自带的 Seatbelt，在 Linux 上用 bubblewrap。为什么不能靠提示词？你在提示词里写「禁止删文件」，模型可能不听，也可能被文件里藏的一句话带偏。沙箱是系统层面的墙，模型想越也越不过去。</p><p>Permission 和 Sandbox 是配合着用的：Permission 管「这一步能不能做」，Sandbox 管「做的时候能碰到哪」。房间里的事不用问你，要出房间才问你。Anthropic 说他们内部用了沙箱之后，确认弹窗少了 84%，大大缓解了上一页说的审批疲劳。</p></aside>
+</section>
+
+<section class="page" id="p40" data-steps="1" data-title="Tool Use" aria-label="Tool Use">
+  <h2 class="info pixel-text" data-pixeltext="Tool Use" data-size="96">Tool Use</h2>
+  <div class="deck">
+    <div class="intro">四个概念：是什么 → 怎么做</div>
+    <div class="summary">
+      <div class="line"><strong class="info">Tool</strong><span>能做的具体动作</span><span class="arrow">→</span><span>Pi 默认 4 个，靠组合；<br>Claude Code 50 多个，按场景</span></div>
+      <div class="line"><strong class="info">Function Calling</strong><span>LLM 说调哪个、传什么</span><span class="arrow">→</span><span>Harness 执行，结果送回 LLM</span></div>
+      <div class="line"><strong class="info">Permission</strong><span>执行前先对规则</span><span class="arrow">→</span><span>直接做 / 先问人 / 不准做</span></div>
+      <div class="line"><strong class="info">Sandbox</strong><span>关上门的房间</span><span class="arrow">→</span><span>操作系统圈住文件和网络</span></div>
+    </div>
+    <div class="caption">一次工具调用</div>
+    <div class="path info"><span>LLM 提出调用</span><i>→</i><span>过权限</span><i>→</i><span>沙箱里执行</span><i>→</i><span>结果送回 LLM</span></div>
+  </div>
+  <aside class="notes"><p>四个概念串一下：Tool 是能做哪些动作；Function Calling 是 LLM 说调哪个、传什么，Harness 去执行，结果送回 LLM；Permission 是执行前先对一遍规则；Sandbox 是把执行关在一个房间里。合起来就是最下面这一行：LLM 提出调用，过权限，在沙箱里执行，结果送回 LLM。</p></aside>
+</section>

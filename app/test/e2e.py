@@ -61,7 +61,7 @@ def check_state(page, expected):
     assert (got['page'], got['step'], got['hash']) == (*expected, '#' + expected[0]), (got, expected)
     assert page.locator('.page.active').get_attribute('id') == expected[0]
     check_isolation(page)
-    if expected[0] not in {'p1', 'p2', 'c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p6', 'c3'}:
+    if expected[0] not in {'p1', 'p2', 'c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'c3'}:
         return  # Later chapters may deliberately have no car.
     if expected[0] == 'p32':
         return  # Summary page: isolation checked above.
@@ -203,7 +203,7 @@ def check_information(page):
 def check_chapter_content(page):
     source = (HERE.parent.parent / '资料/content-ch01.md').read_text()
     compact = lambda text: re.sub(r'\s+', '', text)
-    for number in range(3, 7):
+    for number in range(3, 6):
         section = re.search(rf'^## P{number} .*?\n(.*?)(?=^## |\Z)', source, re.M | re.S).group(1)
         notes = section.split('- **讲稿**\n', 1)[1]
         lines = []
@@ -218,12 +218,11 @@ def check_chapter_content(page):
     assert page.locator('#p4 [data-inset]').count() == 0
     assert page.locator('#p4 .parts-list>div').count() == 5
     assert page.locator('#p5 .beat').all_text_contents() == ['看', '想', '做']
-    assert page.locator('#p6 .round-node').all_text_contents() == ['拼上下文', '模型想', '过权限', '调工具', '结果放回']
     assert page.evaluate('''__app.chassis.length===3 && __app.chassis.every(c=>
       !c.parts.body.children.some(m=>m.visible) && c.parts.wheels.children.some(m=>m.visible))''')
     bundle = json.loads((HERE.parent / '_build/bundle-inputs.json').read_text())
     assert not any(Path(name).name in ['car-glb.js', 'rig.js'] for name in bundle)
-    print('PASS verbatim P2/P3-P6 notes, clickable links, 3 chassis, list/ring copy; GLB and rig excluded')
+    print('PASS verbatim P2/P3-P5 notes, clickable links, 3 chassis, list copy; GLB and rig excluded')
 
 
 def check_all_content(page):
@@ -237,7 +236,7 @@ def check_all_content(page):
                 continue
             steps = re.search(r'^## ' + id_ + r' .*?（(\d+) 步）', source, re.M | re.I)
             if steps:
-                expected_steps = (5 if id_ == 'p5' else int(steps.group(1))) if id_ in {'p3', 'p4', 'p5', 'p6'} else 1
+                expected_steps = (5 if id_ == 'p5' else int(steps.group(1))) if id_ in {'p3', 'p4', 'p5'} else 1
                 assert COUNTS[id_] == expected_steps, id_
             notes = re.search(r'- \*\*讲稿\*\*[：:]?(.*)', section, re.S)
             if not notes:
@@ -431,39 +430,18 @@ def check_effects(page):
     for a, b in zip(runs, runs[1:]):
         if a['beat'] == 'act':
             assert b['ms'] - a['ms'] >= 1550
-    for step, part in enumerate(['windshield', 'driver', 'brake', 'steering', 'windshield'], 1):
-        go(page, 'p6', step)
-        assert page.evaluate('(p)=>__app.lights[p]===1 && Object.values(__app.lights).filter(v=>v===1).length===1', part)
-        if step == 3:
-            assert page.evaluate('__app.state.car.xray>.8')
-            rows = sample(4.8)
-            assert min(r['road'] for r in rows) < .1 and max(r['gateOpen'] for r in rows) > .95 and rows[-1]['road'] > .5
-        if step == 4:
-            page.wait_for_timeout(700)
-            assert page.evaluate('__drive.lane===1 && __app.state.car.pos[0]===0 && __app.car.group.position.x>2.8')
-        if step == 5:
-            assert page.evaluate('__drive.beam>.9 && __drive.lane===1')
-    go(page, 'p6', 6)
-    lit_parts('dashcam')
-    rows = sample(2.5)
-    assert rows[-1]['frames'] > rows[0]['frames'] and rows[-1]['frames'] >= 3
-    go(page, 'p6', 3)
-    page.wait_for_timeout(700)
-    assert page.evaluate('Math.abs(__drive.lane)<.01')
     page.emulate_media(reduced_motion='reduce')
     try:
-        for id_, step in [('p4', 1), ('p4', 2), ('p4', 3), ('p4', 4), ('p4', 5), ('p5', 3), ('p6', 4), ('p6', 5), ('p6', 6)]:
+        for id_, step in [('p4', 1), ('p4', 2), ('p4', 3), ('p4', 4), ('p4', 5), ('p5', 3)]:
             go(page, id_, step)
             rows = sample(.65)
             assert all(r['road'] == 0 and r['steer'] == 0 and r['lane'] == rows[0]['lane'] and r['frames'] == rows[0]['frames'] and r['wheel'] == rows[0]['wheel'] for r in rows)
             if id_ == 'p4' and step == 5:
                 assert all(r['beat'] == 'look' and r['lights']['windshield'] == 1 and r['lane'] == 0 for r in rows)
-            if id_ == 'p6':
-                assert rows[0]['lane'] == 1
     finally:
         page.emulate_media(reduced_motion='no-preference')
     (SHOTS / 'drive-geometry.json').write_text(json.dumps(geometry, indent=2) + '\n')
-    print('PASS U2 drive: rolling wheels/road; driver swap; driver, steering, glass, dashcam, four-beat Loop then explode; Tools lanes; beam/frames/gate; synced four-beat Loop; reverse/reduced motion')
+    print('PASS U2 drive: rolling wheels/road; driver swap; driver, steering, glass, dashcam, four-beat Loop then explode; Tools lanes; beam/frames; synced four-beat Loop; reverse/reduced motion')
 
 
 def legacy_regressions():
@@ -717,11 +695,8 @@ def legacy_regressions():
         assert fp.locator('html').evaluate("el=>el.classList.contains('no-webgl')")
         for expected in sequence[1:]:
             fp.keyboard.press('ArrowRight'); settled(fp); check_state(fp, expected)
-        go(fp, 'p6', COUNTS['p6'] - 1)
-        assert fp.locator('#p6 .fallback').is_visible()
         assert fp.locator('[data-icon] svg').count() == fp.locator('[data-icon]').count()
         assert fp.locator('[data-icon]').evaluate_all('els=>els.every(el=>el.querySelector("svg[aria-label]"))'), 'Every chapter icon must have a labelled SVG fallback'
-        assert fp.locator('#p6 .fallback svg').get_attribute('aria-label') == 'dashcam'
         fallback.close()
         throwing = context(browser, reduced_motion='reduce')
         throwing.add_init_script("HTMLCanvasElement.prototype.getContext=function(){throw new Error('QA unavailable canvas');}")
@@ -797,9 +772,9 @@ def main():
         selected = [(id_, n) for id_, n in pairs if id_ in wanted]
         assert page.evaluate('__app.pages') == list(COUNTS)
         if not args.pages and FILE in {HERE.parent.parent / 'Agent-Harness-第二期.html', HERE.parent / '_build/style-A.html'}:
-            expected = ['p1','p2','c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p6', 'c3', *[f'p{i}' for i in (*range(8,15), *range(16,20))], 'c4', 'p21', 'p23', 'p22', 'p25', 'p24', 'p26', 'p20']
+            expected = ['p1','p2','c1', 'p3', 'c2', 'p4', 'p32', 'p5', 'p9', *[f'p{i}' for i in range(33,54)], 'c3', 'p8', *[f'p{i}' for i in (*range(10,15), *range(16,20))], 'c4', 'p21', 'p23', 'p22', 'p25', 'p24', 'p26', 'p20']
             assert list(COUNTS) == expected, list(COUNTS)
-            assert (len(COUNTS), sum(COUNTS.values())) == (29, 48), COUNTS
+            assert (len(COUNTS), sum(COUNTS.values())) == (49, 62), COUNTS
         check_all_content(page)
         assert page.locator('img').evaluate_all('els=>els.every(el=>el.complete && el.naturalWidth>0)'), 'Broken image'
         assert page.locator('a[href]').evaluate_all('els=>els.every(el=>el.target==="_blank")'), 'Link missing target=_blank'
@@ -807,7 +782,7 @@ def main():
             for step in range(n):
                 go(page, id_, step); check_opacity(page); check_information(page)
                 screenshot(page, f'{id_}-{step}.png')
-            if not args.pages and len(COUNTS) == 29:
+            if not args.pages and len(COUNTS) == 49:
                 final_shots = HERE / 'shots-all'
                 final_shots.mkdir(exist_ok=True)
                 page.screenshot(path=str(final_shots / f'{id_}.png'))
@@ -828,7 +803,7 @@ def main():
     assert not errors, '\n'.join(errors)
     assert not remote_requests, remote_requests
     # Keep the original detailed chapter-01 behavior suite on the full deck only.
-    if not args.pages and all(id_ in COUNTS for id_ in ['p1','p2','c1','p3','c2','p4','p32','p5','p6','c3','c4','p20']):
+    if not args.pages and all(id_ in COUNTS for id_ in ['p1','p2','c1','p3','c2','p4','p32','p5','c3','c4','p20']):
         legacy_regressions()
     else:
         print('PASS console errors=0; pageerrors=0; remote requests=0 (offline file://)')

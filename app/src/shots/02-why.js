@@ -17,12 +17,6 @@ export default {
     world: {"key":4.4,"rim":3.6,"fill":0.55,"fog":0.018,"grid":0.06,"speed":0,"backdrop":0,"props":0,"wrenchSpin":0.24},
     ch02: {"assembly":0},
   }],
-  p9: [{
-    ...structuredClone(BASE),
-    car: {"visible":false,"gray":0,"pos":[0,0,0],"rotY":-0.18,"speed":0,"spin":0,"silhouette":0,"dim":0,"lit":{"body":0,"driver":0,"engine":0,"steering":0,"windshield":0,"dashcam":0,"nav":0,"brake":0,"wheels":0,"chassis":0,"key":0,"radio":0},"explode":0,"xray":0,"driver":1,"chassisOnly":0,"blink":0,"hideDriver":false},
-    world: {"key":4.4,"rim":3.6,"fill":0.55,"fog":0.018,"grid":0.18,"speed":0,"backdrop":0,"props":0,"wrenchSpin":0.24},
-    ch02: {"assembly":0},
-  }],
   p10: [{
     ...structuredClone(BASE),
     car: {"visible":false,"gray":0,"pos":[0,0,0],"rotY":-0.18,"speed":0,"spin":0,"silhouette":0,"dim":0,"lit":{"body":0,"driver":0,"engine":0,"steering":0,"windshield":0,"dashcam":0,"nav":0,"brake":0,"wheels":0,"chassis":0,"key":0,"radio":0},"explode":0,"xray":0,"driver":1,"chassisOnly":0,"blink":0,"hideDriver":false},

@@ -1,0 +1,197 @@
+<style>
+#p41 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p41 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p41 .red { color:var(--accent); }
+#p41 .rows { position:absolute; left:120px; top:316px; width:1680px;  }
+#p41 .entry { height:210px; display:grid; grid-template-columns:320px 610px 1fr; align-items:center; border-top:2px solid var(--line); }
+#p41 .entry:last-child { border-bottom:2px solid var(--line); }
+#p41 .entry .minor { margin-top:8px; }
+#p41 .term { font-size:72px !important; }
+#p42 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p42 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p42 .red { color:var(--accent); }
+#p42 a { color:inherit; text-decoration:underline; text-underline-offset:.15em; pointer-events:auto; }
+#p42 .list { position:absolute; left:120px; top:308px; width:820px;  }
+#p42 .item { height:85px; display:flex; align-items:center; gap:34px; border-top:2px solid var(--line); }
+#p42 .item span { color:var(--ink2); font-size:38px; min-width:36px; }
+#p42 .measure { position:absolute; left:120px; top:778px; width:830px;  }
+#p42 .measure strong { color:var(--accent); font-size:98px; }
+#p42 .measure .minor { margin-top:14px; }
+#p42 figure { position:absolute; left:1040px; top:256px; width:760px;  }
+#p42 figure img { display:block; width:100%; }
+#p42 figcaption { position:absolute; right:calc(100% + 80px); bottom:0; width:840px; font-size:36px; color:var(--ink2); }
+#p43 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p43 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p43 .red { color:var(--accent); }
+#p43 a { color:inherit; text-decoration:underline; text-underline-offset:.15em; pointer-events:auto; }
+#p43 .count { position:absolute; left:120px; top:308px; width:830px;  }
+#p43 .count strong { font-size:100px; color:var(--accent); }
+#p43 figure { position:absolute; left:120px; top:610px; width:820px;  }
+#p43 figure img { display:block; width:100%; }
+#p43 .file { position:absolute; left:1000px; top:310px; width:800px; padding:44px 48px; height:650px; background:var(--surface); border-top:6px solid var(--ink); }
+#p43 .line { margin-top:36px; border-top:2px solid var(--line); padding-top:22px; }
+#p43 .file .info { font-size:48px; }
+#p44 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p44 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p44 .red { color:var(--accent); }
+#p44 .manual { position:absolute; left:120px; top:310px; width:1680px; background:var(--surface); border-left:12px solid var(--accent); height:378px; padding:60px 70px; }
+#p44 .manual .info { font-size:112px; }
+#p44 .manual .minor { margin-top:18px; font-size:40px; }
+#p44 .topics { position:absolute; left:120px; top:785px; width:1680px; display:grid; grid-template-columns:repeat(3,1fr); gap:54px; }
+#p44 .topics .info { border-top:3px solid var(--line); padding-top:44px; font-size:64px; }
+#p45 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p45 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p45 .red { color:var(--accent); }
+#p45 a { color:inherit; text-decoration:underline; text-underline-offset:.15em; pointer-events:auto; }
+#p45 .source { position:absolute; left:120px; top:340px; width:950px;  }
+#p45 .source img { display:block; width:100%; margin:22px 0 12px; }
+#p45 .rules { position:absolute; left:1140px; top:312px; width:660px;  }
+#p45 .group { border-top:2px solid var(--line); padding:23px 0 28px; }
+#p45 .group .info { margin-bottom:12px; }
+#p46 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p46 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p46 .red { color:var(--accent); }
+#p46 .index { position:absolute; left:120px; top:334px; width:832px;  }
+#p46 .types { margin-top:48px; }
+#p46 .type { height:112px; border-top:2px solid var(--line); display:grid; align-items:center; grid-template-columns:280px 1fr; }
+#p46 .type:nth-child(2) { background:var(--accent-soft); }
+#p46 .note { position:absolute; left:1018px; top:325px; width:782px; padding:42px 48px; height:645px; border-top:5px solid var(--accent); background:var(--surface); }
+#p46 .note .info { margin-top:36px; }
+#p46 .note .minor:first-child { margin-bottom:12px; }
+#p46 .note .minor { font-size:36px; }
+#p47 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p47 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p47 .red { color:var(--accent); }
+#p47 .session { position:absolute; left:120px; top:320px; width:1120px;  }
+#p47 .session .minor { margin-top:20px; }
+#p47 .comp { margin-top:70px; border-top:3px solid var(--line); padding-top:38px; }
+#p47 .result { margin-top:50px; border-left:8px solid var(--accent); padding-left:30px; }
+#p47 figure { position:absolute; left:1390px; top:264px; width:410px;  }
+#p47 img { width:100%; display:block; }
+#p47 .credit { position:absolute; left:120px; top:950px; width:1150px;  }
+#p48 .info:not(h2) { font-size:52px; line-height:1.25; }
+#p48 .minor { font-size:38px; line-height:1.38; color:var(--ink2); font-weight:500; }
+#p48 .red { color:var(--accent); }
+#p48 .summary { position:absolute; left:120px; top:325px; width:1680px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+#p48 .period { position:relative; height:630px; border-top:5px solid var(--ink); padding:42px 36px; background:var(--surface); }
+#p48 .period:last-child { border-color:var(--accent); }
+#p48 .period .info { font-size:50px; }
+#p48 .period .head { font-size:80px; margin-bottom:44px; }
+#p48 .ref { position:absolute; left:36px; right:36px; bottom:36px; height:170px; border-top:2px solid var(--line); padding-top:18px; }
+#p48 .arrow { color:var(--accent); font-size:38px; }
+</style>
+
+<section class="page" id="p41" data-steps="1" data-title="Agent 的三期记忆" aria-label="Agent 的三期记忆">
+  <h2 class="info pixel-text" data-pixeltext="Agent 的三期记忆" data-size="96">Agent 的三期记忆</h2>
+  <div class="rows"><div class="entry"><div class="period"><div class="info term">长期</div>
+  <div class="minor ">长期设定</div></div>
+  <div class="kind"><div class="info ">System Prompt</div></div>
+  <div class="minor ">我是谁，遵循什么准则？</div></div>
+  <div class="entry"><div class="period"><div class="info term">中期</div>
+  <div class="minor ">项目记忆</div></div>
+  <div class="kind"><div class="info ">项目文件</div>
+  <div class="minor ">AGENTS.md · MEMORY.md</div></div>
+  <div class="minor ">这个项目有什么规则和经验？</div></div>
+  <div class="entry"><div class="period"><div class="info term red">短期</div>
+  <div class="minor ">本次会话</div></div>
+  <div class="kind"><div class="info ">Session</div></div>
+  <div class="minor ">这次做什么，已经做到哪儿？</div></div></div>
+  <aside class="notes"><p>接下来是记忆，这是重点。Agent 的记忆我分成三层：</p><p>长期记忆，是 System Prompt：我是谁，遵循什么准则？</p><p>中期记忆，是项目文件：这个项目有什么规则和经验？</p><p>短期记忆，是这一次会话：这次做什么，已经做到哪儿？</p><p>不管哪一层，存下来的东西都要在开工的时候放进上下文，模型才看得见。</p></aside>
+</section>
+
+<section class="page" id="p42" data-steps="1" data-title="长期记忆：Pi 的 System Prompt" aria-label="长期记忆：Pi 的 System Prompt">
+  <h2 class="info pixel-text" data-pixeltext="长期记忆：Pi 的 System Prompt" data-size="96">长期记忆：Pi 的 System Prompt</h2>
+  <div class="list"><div class="item"><span>1</span><div class="info ">身份</div></div>
+  <div class="item"><span>2</span><div class="info ">会用什么工具</div></div>
+  <div class="item"><span>3</span><div class="info ">以什么方式去行动</div></div>
+  <div class="item"><span>4</span><div class="info ">Pi 的自我介绍</div></div>
+  <div class="item"><span>5</span><div class="info ">自己配置的 skills</div></div></div>
+  <div class="measure"><div class="info ">不到 <strong>1000</strong> token</div>
+  <div class="minor "><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/" target="_blank" rel="noopener noreferrer">系统提示词 + 工具定义 · Pi 作者原话</a></div></div>
+  <figure><img src="images/s1/m-pi-prompt-cn.webp" alt="Pi 的系统提示词 · 中文标注版"><figcaption>Pi 的系统提示词 · 中文标注版</figcaption></figure>
+  <aside class="notes"><p>先看长期记忆，System Prompt 长什么样。这是我本机的 Pi 每次请求真正发给模型的系统提示词，我把它翻成了中文，一共五块：第一，身份，你是谁；第二，会用什么工具，你能做啥；第三，以什么方式去行动，你该咋做；第四，Pi 的说明书在哪，用户问到 Pi 本身才去读，这块有点像在打广告；第五，我自己配置的技能。</p><p>多长？Pi 的作者说过，出厂的系统提示词加上工具定义，一共不到 1000 个 token，差不多一页纸。我这份长一点，多出来的工具和技能是我自己装的。</p></aside>
+</section>
+
+<section class="page" id="p43" data-steps="1" data-title="长期记忆：Claude Code" aria-label="长期记忆：Claude Code">
+  <h2 class="info pixel-text" data-pixeltext="长期记忆：Claude Code" data-size="96">长期记忆：Claude Code</h2>
+  <div class="count"><div class="minor ">System Prompt</div>
+  <div class="info "><strong>810 段</strong></div>
+  <div class="minor ">从安装包里拆出来的提示词 · 跟到 v2.1.286</div></div>
+  <figure><a href="https://github.com/Piebald-AI/claude-code-system-prompts" target="_blank" rel="noopener noreferrer"><img src="images/s1/m-piebald-readme.webp" alt="Piebald 提示词列表"></a></figure><div class="file"><div class="info ">~/.claude/CLAUDE.md</div>
+  <div class="minor ">所有项目都生效</div>
+  <div class="info line">用中文跟我沟通</div>
+  <div class="info line">能并行的都并行</div>
+  <div class="minor line">对我的决策有疑问，<br>或者你有更好的方案，<br>一定要主动提出来</div></div>
+  <aside class="notes"><p>再看 Claude Code。左边这个不是官方发布的，是 GitHub 上有人从 Claude Code 的安装包里拆出来的系统提示词，一共 810 段，用的时候按场景拼起来。一个一页纸，一个 810 段，又是极简和全家桶的对比。</p><p>Claude Code 还有一份长期规则，叫用户级 CLAUDE.md，对你电脑上所有项目都生效。这是我自己的那份：用中文跟我沟通，没有例外；能并行的都并行，省时间优先；对我的决策有疑问，一定要主动提出来。这些就是我希望它在所有项目里都遵守的准则。</p><p>压缩顺带提一句：对话太长了，Claude Code 会自动把前面的内容压成摘要，早先说过的要求可能就丢了。所以要它一直记住的规矩，不能只在对话里说，要写进 CLAUDE.md。我这份里专门写了一句「压缩之后接着干活，也要用中文」，就是防这个。</p></aside>
+</section>
+
+<section class="page" id="p44" data-steps="1" data-title="中期记忆：项目的工作手册" aria-label="中期记忆：项目的工作手册">
+  <h2 class="info pixel-text" data-pixeltext="中期记忆：项目的工作手册" data-size="96">中期记忆：项目的工作手册</h2>
+  <div class="manual"><div class="info ">AGENTS.md</div>
+  <div class="minor ">/ CLAUDE.md</div></div>
+  <div class="topics"><div class="info ">语言规范</div>
+  <div class="info red">踩过的坑</div>
+  <div class="info ">最佳实践</div></div>
+  <aside class="notes"><p>中期记忆，第一块：这个项目应该怎么做？AGENTS.md，项目的「工作手册」：使用什么语言，遵守什么规范，怎样运行和测试。至少要包含项目的语言规范、踩过的坑、最佳实践。</p><p>Claude Code 里这个文件叫 CLAUDE.md。</p><p>Claude Code 官方的建议是：同一个错误犯第二次，就写进这个文件。</p></aside>
+</section>
+
+<section class="page" id="p45" data-steps="1" data-title="中期记忆：开源项目也这么写" aria-label="中期记忆：开源项目也这么写">
+  <h2 class="info pixel-text" data-pixeltext="中期记忆：开源项目也这么写" data-size="96">中期记忆：开源项目也这么写</h2>
+  <div class="source"><div class="info ">Pi 仓库的 AGENTS.md</div><img src="images/s1/m-pi-agents-md-git.webp" alt="Pi 仓库 AGENTS.md 的 Git 一节"><div class="minor "><a href="https://github.com/earendil-works/pi/blob/main/AGENTS.md" target="_blank" rel="noopener noreferrer">Git 一节</a></div></div>
+  <div class="rules"><div class="group"><div class="info ">语言规范</div>
+  <div class="minor ">不准用 any；不准动态 import</div></div>
+  <div class="group"><div class="info red">踩过的坑</div>
+  <div class="minor ">同一目录可能同时跑着<br>好几个 pi 会话<br>别直接跑全量测试</div></div>
+  <div class="group"><div class="info ">最佳实践</div>
+  <div class="minor ">改完代码跑 npm run check<br>没让提交，就别提交</div></div></div>
+  <aside class="notes"><p>开源项目也这么写。这是 Pi 自己仓库里的 AGENTS.md，同样三类。</p><p>语言规范：不准用 any，不准动态 import。这两条是写代码的规矩，大家不用懂，知道这是语言规范就行。</p><p>踩过的坑：同一个目录里，可能同时跑着好几个 Pi 会话。所以禁止 git add -A、git reset --hard 这类命令，它们会把别人的改动一起带走。还有，别直接跑全量测试：有接口密钥的时候，测试会真的去调收费的模型接口，花真钱。</p><p>最佳实践：改完代码跑一遍检查；没让提交，就别提交。</p></aside>
+</section>
+
+<section class="page" id="p46" data-steps="1" data-title="中期记忆：项目的经验笔记" aria-label="中期记忆：项目的经验笔记">
+  <h2 class="info pixel-text" data-pixeltext="中期记忆：项目的经验笔记" data-size="96">中期记忆：项目的经验笔记</h2>
+  <div class="index"><div class="info ">memory/MEMORY.md</div>
+  <div class="minor ">目录，一条一行</div>
+  <div class="types"><div class="type"><div class="info ">user</div>
+  <div class="minor ">你是谁、什么偏好</div></div>
+  <div class="type"><div class="info red">feedback</div>
+  <div class="minor ">纠正过什么、认可过什么</div></div>
+  <div class="type"><div class="info ">project</div>
+  <div class="minor ">在做什么、定了什么</div></div>
+  <div class="type"><div class="info ">reference</div>
+  <div class="minor ">资料在哪儿</div></div></div></div>
+  <div class="note"><div class="minor ">feedback-links-not-qr.md ·<br>一条一个文件</div>
+  <div class="info red">反馈：链接不要二维码</div>
+  <div class="info ">Why:</div>
+  <div class="minor ">他会把 HTML 文件发出去、<br>自己也在电脑上点</div>
+  <div class="info ">How to apply:</div>
+  <div class="minor ">新标签页打开，点了不触发翻页</div></div>
+  <aside class="notes"><p>中期记忆的第二块：这个项目之前学到了什么？MEMORY.md 加相关的记忆文件，项目的「经验笔记」：用户纠正过什么，哪些决定已经确认，哪些背景下次还会用到。</p><p>工作手册是人写给 Agent 的；经验笔记是 Agent 自己边干边记的。拿 Claude Code 举例，它每个项目有一个记忆文件夹，这是做今天这份课件的 Claude Code 自己记的。</p><p>MEMORY.md 是目录，一条一行，每次开工都会读。比如这条：链接不要放二维码；这条：能自己做的别留给用户。这些都是我纠正过它的。</p><p>官方把记忆分四类：user，你是谁、什么偏好；feedback，纠正过什么、认可过什么；project，在做什么、定了什么；reference，资料在哪儿。</p><p>点开一条，一条一个文件。那天我说了一句「所有的链接不要放二维码，要给我能跳转的链接」，它就记下来了，还写了为什么、以后怎么用。之后每次开工它都看得到，不用我再说第二遍。</p></aside>
+</section>
+
+<section class="page" id="p47" data-steps="1" data-title="短期记忆：Session 和压缩" aria-label="短期记忆：Session 和压缩">
+  <h2 class="info pixel-text" data-pixeltext="短期记忆：Session 和压缩" data-size="96">短期记忆：Session 和压缩</h2>
+  <div class="session"><div class="info ">每条消息一行，存成一个文件</div>
+  <div class="minor ">pi -c 接着上次</div>
+  <div class="comp"><div class="info ">树状压缩</div>
+  <div class="minor ">记录只追加、不删除</div></div>
+  <div class="info result red">模型只看「摘要 + 最近的消息」，<br>原文还在</div></div>
+  <figure><img src="images/s1/m-compaction-poster.webp" alt="Pi Agent 上下文压缩 · 视频封面"></figure><div class="minor credit">抖音 @Kieran的AI笔记 · Pi Agent 上下文压缩</div>
+  <aside class="notes"><p>短期记忆，就是这一次会话。Pi 把每次会话存成一个文件，每条消息一行；下次用 pi -c，就能接着上次继续。</p><p>会话太长了怎么办？就要压缩。</p><p>简单说两句树状压缩：Pi 的会话记录只追加、不删除，每一条都记着自己接在哪一条后面；而且可以跳回任意一步，从那儿另开一条往下聊，就分了叉，所以是一棵树。</p><p>快满的时候，把前面一大段交给模型写成摘要，挂到树上；模型下次只看「摘要 + 最近的消息」，原文还在，随时能回到压缩前。</p></aside>
+</section>
+
+<section class="page" id="p48" data-steps="1" data-title="三期记忆汇总" aria-label="三期记忆汇总">
+  <h2 class="info pixel-text" data-pixeltext="三期记忆汇总" data-size="96">三期记忆汇总</h2>
+  <div class="summary"><div class="period"><div class="info head">长期</div>
+  <div class="info ">我是谁、<br>守什么规矩</div>
+  <div class="ref"><div class="arrow">→</div>
+  <div class="minor ">System Prompt ·<br>~/.claude/CLAUDE.md</div></div></div>
+  <div class="period"><div class="info head">中期</div>
+  <div class="info ">项目怎么做、<br>之前学到了什么</div>
+  <div class="ref"><div class="arrow">→</div>
+  <div class="minor ">AGENTS.md ·<br>MEMORY.md</div></div></div>
+  <div class="period"><div class="info head red">短期</div>
+  <div class="info ">这次做什么、<br>做到哪儿</div>
+  <div class="ref"><div class="arrow">→</div>
+  <div class="minor ">Session<br>（太长就压成摘要）</div></div></div></div>
+  <aside class="notes"><p>三层记忆一句话：长期管「我是谁、守什么规矩」，中期管「这个项目怎么做、之前学到了什么」，短期管「这一次做什么、做到哪儿」，太长了就压成摘要。</p></aside>
+</section>

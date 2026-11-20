@@ -1,0 +1,124 @@
+<style>
+#p49 .loop-map{position:absolute;left:120px;top:300px;width:1680px;height:690px}
+#p49 .loop-map svg{position:absolute;inset:0;width:100%;height:100%}
+#p49 .loop-map .links{fill:none;stroke:var(--ink2);stroke-width:3;marker-end:url(#p49-tip)}
+#p49 .station{position:absolute;display:grid;place-content:center;text-align:center;left:600px;width:550px;height:110px;line-height:1.09;font-size:48px;background:var(--surface);border-top:3px solid var(--line)}
+#p49 .input{left:0;width:490px;top:0}
+#p49 .context{top:0}
+#p49 .decision{top:192px;background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-size:60px}
+#p49 .request{top:382px}
+#p49 .result{top:580px}
+#p49 .deliver,#p49 .permission,#p49 .execute{left:1340px;width:340px}
+#p49 .deliver{top:192px}
+#p49 .permission{top:382px}
+#p49 .execute{top:580px}
+#p49 .caption{position:absolute;font-size:36px;line-height:1.2;color:var(--ink2)}
+#p49 .yes{left:1172px;top:195px}
+#p49 .more{left:894px;top:318px}
+#p49 .pass{left:1532px;top:514px}
+#p49 .repeat{left:266px;top:416px}
+#p50 .compare{position:absolute;inset:320px 120px 90px;display:grid;grid-template-rows:1fr 1fr;border-bottom:2px solid var(--line)}
+#p50 .pair{display:grid;grid-template-columns:43% 1fr;align-items:baseline;align-content:center;padding:0 80px;border-top:3px solid var(--line)}
+#p50 .pair b{font-size:104px;letter-spacing:-3px}
+#p50 .pair span{font-size:84px}
+#p50 .pair:last-child{background:var(--surface);border-top-color:var(--accent)}
+#p50 .pair:last-child b{color:var(--accent)}
+#p51 .parts{position:absolute;left:120px;right:120px;top:325px;height:300px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+#p51 .parts b{display:grid;align-content:center;padding-left:40px;border-top:3px solid var(--line);background:var(--surface);font-size:64px}
+#p51 .parts b:first-child{color:var(--accent);border-color:var(--accent)}
+#p51 .load{position:absolute;left:120px;right:120px;top:730px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+#p51 .stage{display:flex;flex-direction:column;gap:56px;border-top:2px solid var(--ink2);padding-top:18px}
+#p51 .stage span{font-size:36px;color:var(--ink2);font-variant-numeric:tabular-nums}
+#p51 .stage b{font-size:52px}
+#p52 .summary{position:absolute;left:120px;top:295px;font-size:56px}
+#p52 .sheet{position:absolute;left:120px;top:412px;width:1000px}
+#p52 .item{display:grid;grid-template-columns:290px 1fr 108px;align-items:center;height:108px;padding:0 26px;border-top:2px solid var(--line)}
+#p52 .item:last-child{border-bottom:2px solid var(--line)}
+#p52 .item:first-child{background:var(--surface);border-top-color:var(--accent)}
+#p52 .item:first-child b,#p52 .item:first-child small{color:var(--accent)}
+#p52 .item b{font-size:48px}
+#p52 .item span,#p52 .item small{font-size:38px;font-weight:500}
+#p52 .item small{text-align:right;color:var(--ink2)}
+#p52 .tree{position:absolute;left:1190px;right:120px;top:412px;height:432px;padding:28px 38px;background:var(--surface)}
+#p52 .tree a{display:block;width:fit-content;pointer-events:auto;color:var(--ink);font-size:36px;text-underline-offset:8px}
+#p52 .tree pre{margin:24px 0 0;font:500 38px/1.45 monospace;color:var(--ink2)}
+#p52 .tree strong{color:var(--ink)}
+#p52 .rule{position:absolute;left:120px;top:905px;margin:0;border-left:5px solid var(--accent);padding-left:26px;font-size:40px}
+#p53 .modules{position:absolute;left:120px;right:120px;top:298px;margin:0;padding:0;list-style:none;border-bottom:2px solid var(--line)}
+#p53 .module{height:98px;display:grid;grid-template-columns:116px 680px 1fr;align-items:center;border-top:2px solid var(--line);padding:0 24px}
+#p53 .module:first-child{background:var(--surface);border-color:var(--accent)}
+#p53 .module small{font-size:36px;color:var(--accent);font-variant-numeric:tabular-nums}
+#p53 .module b{font-size:50px}
+#p53 .module span{font-size:40px}
+</style>
+
+<section class="page" id="p49" data-steps="1" data-title="Agent Loop：把它们串起来" aria-label="Agent Loop：把它们串起来">
+  <h2 class="info pixel-text" data-pixeltext="Agent Loop：把它们串起来" data-size="96">Agent Loop：把它们串起来</h2>
+  <div class="loop-map">
+    <svg viewBox="0 0 1680 690" aria-hidden="true">
+      <defs><marker id="p49-tip" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="var(--ink2)"/></marker></defs>
+      <g class="links"><path d="M490 55H592"/><path d="M875 110V184"/><path d="M1150 247H1332"/><path d="M875 302V374"/><path d="M1150 437H1332"/><path d="M1510 492V572"/><path d="M1340 635H1158"/><path d="M600 635H245V247H592"/></g>
+    </svg>
+    <div class="station info input">System Prompt<br>+ User Prompt</div>
+    <div class="station info context">Harness<br>组织、装载上下文</div>
+    <div class="station info decision">LLM 判断</div>
+    <span class="caption yes">可以交付</span><div class="station info deliver">返回用户</div>
+    <span class="caption more">需要行动</span><div class="station info request">Function Calling<br>发起工具请求</div>
+    <div class="station info permission">权限审查</div>
+    <span class="caption pass">通过</span><div class="station info execute">Harness<br>执行工具</div>
+    <div class="station info result">结果更新进上下文</div><span class="caption repeat">再次判断</span>
+  </div>
+  <aside class="notes"><p>接下来终于来到 Agent Loop 了。Agent Loop 就是把我们刚刚所提到的全部串起来：用户输入 User Prompt，Harness 再带上自己的 System Prompt，我们的 Harness 开始组织并装载上下文，然后丢给大语言模型进行判断。</p><p>模型判断之后，如果可以达成交付，就直接把结果返回给用户；如果还需要进一步行动，就会通过 Function Calling 的方式发起工具请求。</p><p>先过权限审查，通过后，Harness 执行工具，返回的结果再更新到上下文中，接着丢给模型，模型再去做判断。就这样一圈一圈转，直到可以交付。</p></aside>
+</section>
+
+<section class="page" id="p50" data-steps="1" data-title="Skills" aria-label="Skills">
+  <h2 class="info pixel-text" data-pixeltext="Skills" data-size="96">Skills</h2>
+  <div class="compare">
+    <div class="pair"><b class="info">Tools</b><span class="info">能做什么</span></div>
+    <div class="pair"><b class="info">Skills</b><span class="info">怎么做好</span></div>
+  </div>
+  <aside class="notes"><p>那么有了方向盘，也不代表我们的司机会侧方停车，是吧？工具证明了能做什么，Skills 就证明了怎么做好。</p></aside>
+</section>
+
+<section class="page" id="p51" data-steps="1" data-title="一个 Skill 长什么样" aria-label="一个 Skill 长什么样">
+  <h2 class="info pixel-text" data-pixeltext="一个 Skill 长什么样" data-size="96">一个 Skill 长什么样</h2>
+  <div class="parts"><b class="info">SKILL.md</b><b class="info">脚本</b><b class="info">参考资料</b><b class="info">输出模板</b></div>
+  <div class="load">
+    <div class="stage"><span>01</span><b class="info">先只看名字和描述</b></div>
+    <div class="stage"><span>02</span><b class="info">要用时读全文</b></div>
+    <div class="stage"><span>03</span><b class="info">配合工具去做</b></div>
+  </div>
+  <aside class="notes"><p>Skills 就是把做事的 SOP 打包，主要包含这四块内容。</p><p>第一，SKILL.md，主要描述做事的 SOP。第二，脚本，做这件事要用的一些脚本，这样模型在处理时就不用重新写了。第三，Reference 参考资料。第四，输出模板。</p><p>这些都根据我们项目和流程的具体情况来定，可以提供，也可以不提供。</p><p>那 Agent 是怎么用上它的？平时只看技能的名字和一句话描述，不占地方；</p></aside>
+</section>
+
+<section class="page" id="p52" data-steps="1" data-title="Skills 汇总" aria-label="Skills 汇总">
+  <h2 class="info pixel-text" data-pixeltext="Skills 汇总" data-size="96">Skills 汇总</h2>
+  <b class="summary info">把做事的 SOP 打包</b>
+  <div class="sheet">
+    <div class="item"><b class="info">SKILL.md</b><span>做事的 SOP</span><small>必需</small></div>
+    <div class="item"><b class="info">脚本</b><span>模型不用重写</span><small>可选</small></div>
+    <div class="item"><b class="info">参考资料</b><span>用到再读</span><small>可选</small></div>
+    <div class="item"><b class="info">输出模板</b><span>固定输出格式</span><small>可选</small></div>
+  </div>
+  <div class="tree"><a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">agentskills.io 官方结构 ↗</a><pre>skill-name/
+├── <strong>SKILL.md</strong>
+├── scripts/
+├── references/
+└── assets/</pre></div>
+  <p class="rule">按项目和流程定，可以提供，也可以不提供</p>
+  <aside class="notes"><p>记住一句：SKILL.md 是必须的，写的是 SOP；脚本、参考资料、输出模板，按项目需要再给。右边是官方的目录结构，除了 SKILL.md，其他都只是建议。</p></aside>
+</section>
+
+<section class="page" id="p53" data-steps="1" data-title="本章汇总：一页记住 Agent Harness" aria-label="本章汇总：一页记住 Agent Harness">
+  <h2 class="info pixel-text" data-pixeltext="本章汇总：一页记住 Agent Harness" data-size="96">本章汇总：一页记住 Agent Harness</h2>
+  <ol class="modules">
+    <li class="module"><small>01</small><b class="info">LLM</b><span>大语言模型，只做理解与判断</span></li>
+    <li class="module"><small>02</small><b class="info">Agent Loop</b><span>完整闭环</span></li>
+    <li class="module"><small>03</small><b class="info">Tools</b><span>对外操作</span></li>
+    <li class="module"><small>04</small><b class="info">Context &amp; Memory</b><span>长期 · 中期 · 短期</span></li>
+    <li class="module"><small>05</small><b class="info">Skills</b><span>复用做事方法</span></li>
+    <li class="module"><small>06</small><b class="info">Permission</b><span>管住授权</span></li>
+    <li class="module"><small>07</small><b class="info">Sandbox</b><span>限制影响范围</span></li>
+  </ol>
+  <aside class="notes"><p>OK，归纳一下。关于 Agent Harness，作为产品经理，我们主要关注这么 7 个模块就行了：第一，大语言模型，只是去做理解和判断；第二，Agent Loop，一个完整的闭环；第三，工具。</p><p>第四，Context 和 Memory，长期、中期、短期三层；第五，Skills，复用做事的方法；第六，Permission，管住授权；第七，Sandbox，限制影响范围。其实就是开头那四块，加上 LLM 本身，再把外面那圈安全边界拆成 Permission 和 Sandbox。</p></aside>
+</section>

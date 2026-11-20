@@ -55,14 +55,4 @@ export default {
   {car:{lit:lit({driver:1})},drive:{beam:false}},
   {car:{lit:lit()},drive:{loop:true}},
   {world:{backdrop:0},effect:EFFECT}],
-  p6:[{
-    cam:CHASE,car:{...CAR,rotY:0,gray:1,dim:0,speed:3},effect:EFFECT,drive:driving(),
-    world:{backdrop:.82,grid:0,speed:0},insets:[],
-  },
-  {car:{gray:1,lit:lit({windshield:1})},drive:{beam:true}},
-  {car:{lit:lit({driver:1})},drive:{beam:false}},
-  {car:{xray:.88,lit:lit({brake:1})},drive:{gate:'pass'}},
-  {car:{xray:.12,lit:lit({steering:1})},drive:{gate:'',lane:1}},
-  {car:{xray:0,lit:lit({windshield:1})},drive:{beam:true}},
-  {car:{lit:lit({dashcam:1})},drive:{beam:false,trail:true}}],
 };

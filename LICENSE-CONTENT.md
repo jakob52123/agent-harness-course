@@ -8,5 +8,4 @@
 2. **字体（SIL OFL 1.1）**
    `app/fonts-src/` 下的字体按各自的 SIL Open Font License 1.1（SIL OFL 1.1）授权，详见该目录下的 `许可-OFL.txt`。
 
-3. **产品截图**
-   `images/products/` 下是各产品官网或 GitHub 公开页面的截图，版权归原所有者，这里只作课程讲解引用。
+3. 截图（`images/products/`、`images/s1/`）：各产品官网、文档、GitHub 公开页面和视频平台的截图，版权归原所有者，这里只作课程讲解引用。

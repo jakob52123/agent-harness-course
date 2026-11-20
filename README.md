@@ -1,9 +1,9 @@
 # Agent Harness 第二期课件
 
-这是给产品经理讲 **Agent Harness** 的一堂课的网页幻灯片。全套课件共 29 页（48 步，4 张章节页 + 25 张内容页），分为四个部分：
+这是给产品经理讲 **Agent Harness** 的一堂课的网页幻灯片。全套课件共 49 页（62 步，4 张章节页 + 45 张内容页），分为四个部分：
 
 1. **Agent Harness 是什么**
-2. **Agent Harness 的组成部分**
+2. **Agent Harness 的组成部分**。以 Pi 为标本，逐个讲工具、权限、沙箱、三期记忆、Agent Loop、Skills。
 3. **有哪些 Harness 和 Agent 产品**
 4. **AI 产品经理怎么做**
 

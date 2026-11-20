@@ -25,11 +25,6 @@
 #p5 .function-label{left:182px;top:538px;padding:5px 16px 8px;font:700 36px/1.15 'AH Noto',sans-serif;background:var(--accent-soft);color:var(--accent)}
 #p5 .pi-demo{left:936px;top:438px;padding:0;background:var(--surface)}
 #p5 .callout{position:static;padding:11px 18px;border:0;border-top:1px solid var(--line);background:var(--surface);font:24px/1 'AH Silk',monospace}
-#p6 .round-diagram{left:120px;top:282px;transform-origin:top left;transform:scale(1.045)}
-#p6 .round-node{padding:20px 18px 24px;background:var(--surface);border-top:3px solid var(--line);font-size:56px}
-#p6 .round-node.current{border-color:var(--accent)}
-#p6 .exit-line{stroke:var(--ink2);stroke-width:2}
-#p6 .round-summary{position:absolute;left:120px;top:892px;padding:12px 22px 16px;border-left:4px solid var(--ink2);background:var(--surface);font-size:36px;font-weight:500;color:var(--ink2)}
 </style>
       <section class="page chapter" id="c1" data-steps="1" data-title="Agent Harness 是什么" aria-label="Agent Harness 是什么">
         <div class="chapter-number info pixel-text" data-pixeltext="01" data-size="360" data-cell="5">01</div>
@@ -96,14 +91,4 @@
         <div class="fallback hero-fallback" data-icon="car" aria-hidden="true"></div>
         <figure class="pi-demo comic" data-step="4"><img src="images/pi-demo-flow.webp" alt="Pi"><figcaption class="callout">Pi</figcaption></figure>
         <aside class="notes"><p>大模型自己不会动手，只会吐字；圈是外面的 Harness 程序带着模型在转。顺着屏幕上「看 → 想 → 做」三张卡看一圈怎么转：</p><p>第一步「看」，是组装 Context：由 Harness 把这一步要给模型看的信息组装成上下文（Context）喂给模型。第二步「想」，是模型 Thinking：模型拿到上下文开始思考（Thinking），决定下一步干什么。第三步「做」，是 Function calling：模型自己不调工具，只是通过 Function calling 吐出「我要调用哪个工具、参数是什么」；外面的 Harness 程序真正去执行工具，再把拿到的结果放回上下文（Context），接着转下一圈。</p></aside>
-      </section>
-      <section class="page round-page" id="p6" data-steps="7" data-title="一圈" aria-label="一圈">
-        <h2 class="info pixel-text" data-pixeltext="一圈" data-size="96" data-cell="2" data-weight="500">一圈</h2>
-        <div class="round-diagram ring">
-          <svg viewBox="0 0 1100 660" aria-hidden="true"><defs><marker id="round-arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8"/></marker></defs><g class="round-arrows"><path d="M402 100H650"/><path d="M825 162L865 291"/><path d="M797 420L658 492"/><path d="M409 492L254 420"/><path d="M185 291L226 162"/></g><path class="exit-line" d="M170 416V584 M162 574L170 584L178 574"/><path id="round-track" class="track" d="M250 100H770L890 365L535 550L170 365Z"/><circle class="circuit-dot" r="7" data-track="round-track"/></svg>
-          <span class="round-node info" style="--x:250px;--y:100px" data-step="1">拼上下文</span><span class="round-node info" style="--x:770px;--y:100px" data-step="2">模型想</span><span class="round-node info" style="--x:890px;--y:365px" data-step="3">过权限</span><span class="round-node info" style="--x:535px;--y:550px" data-step="4">调工具</span><span class="round-node info" style="--x:170px;--y:365px" data-step="5">结果放回</span>
-        </div>
-        <div class="round-summary">结束后：按需写入记忆</div>
-        <div class="fallback hero-fallback" data-icon="car" aria-hidden="true"></div>
-        <aside class="notes"><p>屏幕上这张五步图是帮大家看清一圈怎么走的教学拆解图：拼好这一步要给模型看的上下文（挡风玻璃）→ 模型想下一步（司机）→ 过权限（刹车）→ 调工具（方向盘）→ 结果放回上下文（挡风玻璃），没做完就接着转下一圈；如果产品配了长期记忆，任务结束后再把要留底的信息写进记忆（行车记录仪）。</p><p>真实产品落地时，不一定每一步都按这张教学图摆在圈里；哪些步骤会挪到圈外，我们到第 04 章拆解实际产品时再看。</p></aside>
       </section>
